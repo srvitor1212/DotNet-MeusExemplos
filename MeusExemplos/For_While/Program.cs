@@ -21,3 +21,15 @@ while (executando)
     else 
         contador++;
 }
+
+
+Console.WriteLine("\n\nWhile Interromper no meio");
+contador = 0;
+while (true)
+{
+    Console.WriteLine($"Contador: {contador}");
+    if (contador == 5)
+        break;
+    else
+        contador++;
+}
