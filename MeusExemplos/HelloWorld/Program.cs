@@ -15,3 +15,10 @@ Console.WriteLine(
     "Olá\n" +
     "Essa mensagem foi formatada\n\n" +
     "Pulando linhas.");
+
+
+Console.WriteLine("Concatenando strings usando {0} {1}");
+string nome = "Vitor", 
+    sobrenome = "Vicente";
+int idade = 29;
+Console.WriteLine("{0} {1} tem {2} anos", nome, sobrenome, idade);
