@@ -29,6 +29,17 @@ namespace POO_Construtores
             ProdutoSobrecarga p3 = new ProdutoSobrecarga("Carro Chevrolet", 50000.99, 2);
             Console.WriteLine(p3);
 
+
+            Console.WriteLine("...construtor referênciando outro contrutor com THIS");
+            ProdutoThis produtoThis = new ProdutoThis();
+            Console.WriteLine(produtoThis);
+
+            ProdutoThis p4 = new ProdutoThis("Caderno", 29.9);
+            Console.WriteLine(p4);
+
+            ProdutoThis p5 = new ProdutoThis("Vassoura", 30.0, 30);
+            Console.WriteLine(p5);
+
         }
     }
 }
