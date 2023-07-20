@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace POO_Construtores
 {
@@ -13,13 +9,15 @@ namespace POO_Construtores
             this.Quantidade = 10;
         }
 
-        public ProdutoThis(string name, double preco) : this()
+        public ProdutoThis(string name, double preco) 
+            : this()
         {
             Name = name;
             Preco = preco;
         }
 
-        public ProdutoThis(string name, double preco, int quantidade) : this(name, preco)
+        public ProdutoThis(string name, double preco, int quantidade) 
+            : this(name, preco)
         {
             Quantidade = quantidade;
         }
