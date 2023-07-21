@@ -23,6 +23,15 @@ namespace POO_Encapsulamento
             produto.setPropriedadePrivada("Teste");
             Console.WriteLine(produto);
 
+
+            Console.WriteLine("...usando property");
+            ProdutoProperty prop = new ProdutoProperty("carro", 25000.0, 1);
+            Console.WriteLine(prop);
+            Console.WriteLine($"prop: {prop.PropriedadePrivada}");
+            prop.PropriedadePrivada = "ab";
+            Console.WriteLine($"prop2: {prop.PropriedadePrivada}");
+            prop.PropriedadePrivada = "teste";
+            Console.WriteLine($"prop2: {prop.PropriedadePrivada}");
         }
     }
 }
