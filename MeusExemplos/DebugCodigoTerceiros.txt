@@ -1,0 +1,14 @@
+
+
+Os arquivos .pdb (Program Database) são arquivos de símbolos de depuração usados pelo Visual Studio e 
+outras ferramentas de depuração em linguagens de programação como C, C++, C#, entre outras. Eles cont
+êm informações importantes que permitem ao depurador associar o código compilado (binário) com o códi
+go-fonte original, bem como fornecer informações adicionais úteis durante a depuração.
+
+
+1- Debug > Options > Symbols
+	1.1 - Check: Microsoft Symbol Servers
+	1.2 - Colocar um dir aonde será salvo os arquivos .pdb: Cache symbols in this directory
+
+2- Debug > Options > General
+	2.1 - Desabilitar: Enable Just My Code

@@ -9,9 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "For_While", "For_While\For_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POO_Simples", "POO_Simples\POO_Simples.csproj", "{9BD71219-D447-49ED-990C-01221DEC12FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POO_Static", "POO_Static\POO_Static.csproj", "{EB03BFAF-7EA9-44E2-939D-C2D7C03AD30A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POO_Static", "POO_Static\POO_Static.csproj", "{EB03BFAF-7EA9-44E2-939D-C2D7C03AD30A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POO_Construtores", "POO_Construtores\POO_Construtores.csproj", "{2C4FF2C7-1873-408D-94FD-E25D422EA759}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POO_Construtores", "POO_Construtores\POO_Construtores.csproj", "{2C4FF2C7-1873-408D-94FD-E25D422EA759}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{07F81E84-4F6D-4778-8410-A13C53635724}"
+	ProjectSection(SolutionItems) = preProject
+		DebugCodigoTerceiros.txt = DebugCodigoTerceiros.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
