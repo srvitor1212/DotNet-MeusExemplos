@@ -7,7 +7,6 @@ namespace POO_Encapsulamento
         static void Main(string[] args)
         {
             Console.WriteLine("...iniciando");
-
             Produto produto = new Produto("TV", 1200.99, 3);
             Console.WriteLine(produto);
             //Posso alterar as propriedades

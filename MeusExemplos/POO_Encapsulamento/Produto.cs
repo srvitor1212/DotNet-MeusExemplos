@@ -12,11 +12,11 @@ namespace POO_Encapsulamento
         }
 
         //public
-        public string Name { get; set; }
-        public double Preco { get; set; }
-        public int Quantidade { get; set; }
+        public string Name;
+        public double Preco;
+        public int Quantidade;
         //private
-        private string PropriedadePrivada { get; set; } = "Não Informado";
+        private string PropriedadePrivada = "Não Informado";
 
         public string getPropriedadePrivada()
         {
