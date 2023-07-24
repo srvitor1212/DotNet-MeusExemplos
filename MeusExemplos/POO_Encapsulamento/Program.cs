@@ -32,6 +32,16 @@ namespace POO_Encapsulamento
             Console.WriteLine($"prop2: {prop.PropriedadePrivada}");
             prop.PropriedadePrivada = "teste";
             Console.WriteLine($"prop2: {prop.PropriedadePrivada}");
+
+
+            Console.WriteLine("... usando auto property");
+            ProdutoAutoProperty autoP = new ProdutoAutoProperty("Notebook", 5000, 10);
+            Console.WriteLine(autoP);
+            autoP.Name = "Note Acer i3";
+            autoP.Preco = 2900;
+            autoP.Quantidade = 200;
+            //autoP.PropriedadePrivada = "Usado"; //não pode
+            Console.WriteLine(autoP);
         }
     }
 }
