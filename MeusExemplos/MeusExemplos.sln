@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ponteiros", "Ponteiros\Pont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Struct", "Struct\Struct.csproj", "{E5838AEF-768F-4578-9077-66731DA58193}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nullable", "Nullable\Nullable.csproj", "{F34DF58A-EE53-428F-AFF8-41CA787C00F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{E5838AEF-768F-4578-9077-66731DA58193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5838AEF-768F-4578-9077-66731DA58193}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5838AEF-768F-4578-9077-66731DA58193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34DF58A-EE53-428F-AFF8-41CA787C00F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34DF58A-EE53-428F-AFF8-41CA787C00F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34DF58A-EE53-428F-AFF8-41CA787C00F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34DF58A-EE53-428F-AFF8-41CA787C00F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
