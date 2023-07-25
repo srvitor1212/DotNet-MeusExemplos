@@ -11,13 +11,6 @@ for (int i = 0; i < 10; i++)
     Console.WriteLine(i);
 }
 
-Console.WriteLine("... for each");
-int[] vetor = new int[3];
-foreach (int i in vetor)
-{
-    Console.WriteLine(i);
-}
-
 
 Console.WriteLine("\n\nWhile Simples");
 bool executando = true;
