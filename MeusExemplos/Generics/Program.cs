@@ -31,6 +31,16 @@ namespace Generics
             gen2.CompararTipos(i1, s1);
             gen2.CompararTipos(d1, d2);
 
+
+            // Generics a nível de classe
+            Console.WriteLine("\n...classe genérica");
+            var genIntInt = new GenericClass<int, int>();
+            genIntInt.CompararMesmoTipo(i1, i2);
+            
+            var genStrInt = new GenericClass<string, int>();
+            genStrInt.CompararTipos(s1, i2);
+
+
         }
     }
 }
