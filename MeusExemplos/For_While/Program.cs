@@ -1,7 +1,5 @@
 ﻿
 
-using System;
-
 Console.WriteLine("...running");
 
 
@@ -19,8 +17,8 @@ while (executando)
 {
     Console.WriteLine($"Contador: {contador}");
     if (contador == 10)
-        executando= false;
-    else 
+        executando = false;
+    else
         contador++;
 }
 
@@ -35,3 +33,9 @@ while (true)
     else
         contador++;
 }
+
+
+Console.WriteLine("...foreach");
+string[] nomes = new string[] { "Maria", "João", "Bob" };
+foreach (string s in nomes)
+    Console.WriteLine(s);

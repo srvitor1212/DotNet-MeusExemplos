@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Params", "Params\Params.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ref e Out", "Ref e Out\Ref e Out.csproj", "{967BF957-1DD8-42F9-B08B-B85511DD055C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxing e Unboxing", "Boxing e Unboxing\Boxing e Unboxing.csproj", "{D7F0E64C-C181-470D-8A8B-E7721BD631BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,10 @@ Global
 		{967BF957-1DD8-42F9-B08B-B85511DD055C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{967BF957-1DD8-42F9-B08B-B85511DD055C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{967BF957-1DD8-42F9-B08B-B85511DD055C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F0E64C-C181-470D-8A8B-E7721BD631BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F0E64C-C181-470D-8A8B-E7721BD631BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F0E64C-C181-470D-8A8B-E7721BD631BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F0E64C-C181-470D-8A8B-E7721BD631BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
