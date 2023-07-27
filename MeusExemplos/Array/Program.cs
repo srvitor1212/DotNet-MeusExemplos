@@ -34,10 +34,12 @@ namespace Array
 
             // Passando um array por parâmetro
             Console.WriteLine($"Resultado da soma: " +
-                $"{Calcular(new int[]{ 1, 3, 5 })}");
+                $"{Calcular(new int[] { 1, 3, 5 })} ");
 
             Console.WriteLine($"Resultado da soma: " +
-                $"{Calcular(new int[] { 231, 322, 52, 323, 242, 42414})}");
+                $"{Calcular(new int[] { 231, 322, 52, 323, 242, 42414})} ");
+
+            CalcularParams(3, 5, 7, 5, 4);
 
         }
 
@@ -46,11 +48,18 @@ namespace Array
         {
             int res = 0;
             for (int i = 0; i < valores.Length; i++)
-            {
                 res += valores[i];
-            }
 
             return res;
+        }
+
+        static void CalcularParams(params int[] valores)
+        {
+            int res = 0;
+            for (int i = 0; i < valores.Length; i++)
+                res += valores[i];
+
+            Console.WriteLine($"Rsultado : {res}");
         }
     }
 }

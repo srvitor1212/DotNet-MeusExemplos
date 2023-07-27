@@ -28,7 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nullable", "Nullable\Nullab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array", "Array\Array.csproj", "{EEF66D2B-7FB6-4B94-92FB-C93A48BEC6B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generics", "Generics\Generics.csproj", "{31AED627-691A-490E-AC76-1B797F5870E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generics", "Generics\Generics.csproj", "{31AED627-691A-490E-AC76-1B797F5870E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Params", "Params\Params.csproj", "{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +82,10 @@ Global
 		{31AED627-691A-490E-AC76-1B797F5870E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31AED627-691A-490E-AC76-1B797F5870E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31AED627-691A-490E-AC76-1B797F5870E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
