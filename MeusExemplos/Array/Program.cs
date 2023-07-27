@@ -40,7 +40,6 @@ namespace Array
                 $"{Calcular(new int[] { 231, 322, 52, 323, 242, 42414})} ");
 
             CalcularParams(3, 5, 7, 5, 4);
-
         }
 
 
