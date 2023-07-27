@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generics", "Generics\Generi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Params", "Params\Params.csproj", "{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ref", "Ref\Ref.csproj", "{D1B16032-72C1-4EF4-8891-CD4371147DCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E148DCF-6E75-4077-B0E7-FA26FF3C6D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B16032-72C1-4EF4-8891-CD4371147DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B16032-72C1-4EF4-8891-CD4371147DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B16032-72C1-4EF4-8891-CD4371147DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B16032-72C1-4EF4-8891-CD4371147DCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
