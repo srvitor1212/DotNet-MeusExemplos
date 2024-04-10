@@ -29,6 +29,8 @@ internal class Program
         Console.WriteLine("Sem o mock: {0}", dataAgora);
 
 
+        // Nesse caso o Mock está sendo usado para forçar
+        // uma data, pois para testar os dados tem que ser previsiveis.
         var dataMock = new DateTime(2022, 4, 1);
         var objMock = new Mock<IClasseMock>();
         objMock
