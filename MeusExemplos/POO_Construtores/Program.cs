@@ -41,8 +41,10 @@ namespace POO_Construtores
             Console.WriteLine(p5);
 
 
-            Console.WriteLine("====== Construtor primário .net8");
-            var carroNovo = new Carro(xxx???); //precisa passar um repository
+            Console.WriteLine("====== Construtor primário .net8 e injeção de dependênica");
+            var repo = new Repository();
+            var carroNovo = new Carro(repo);
+            Console.WriteLine("Carro novo: {0}", carroNovo.CarTypeBrazilian());
 
 
         }

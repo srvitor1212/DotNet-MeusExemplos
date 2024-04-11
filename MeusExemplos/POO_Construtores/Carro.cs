@@ -4,7 +4,7 @@ public class Carro(IRepositoryInterface repository) //Construtor primário, func
 {
     private readonly IRepositoryInterface _repository = repository;
 
-    private bool CarTypeBrazilian()
+    public bool CarTypeBrazilian()
     {
         return _repository.BrazilianCar();
     }
