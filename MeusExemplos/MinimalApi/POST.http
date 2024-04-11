@@ -1,0 +1,33 @@
+﻿@MinimalApi_HostAddress = https://localhost:7143
+
+POST {{MinimalApi_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "name":"Lavar o Carro",
+  "isComplete":false
+}
+###
+POST {{MinimalApi_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "name":"Pagar os boletos",
+  "isComplete":false
+}
+###
+POST {{MinimalApi_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "name":"Levar o lixo",
+  "isComplete":true
+}
+###
+POST {{MinimalApi_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "name":"Caminhar com o Dog",
+  "isComplete":false
+}

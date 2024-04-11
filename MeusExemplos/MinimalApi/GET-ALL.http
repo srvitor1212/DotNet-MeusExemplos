@@ -1,0 +1,5 @@
+﻿@MinimalApi_HostAddress = https://localhost:7143
+
+GET {{MinimalApi_HostAddress}}/todoitems
+
+###
