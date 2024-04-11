@@ -40,6 +40,11 @@ namespace POO_Construtores
             ProdutoThis p5 = new ProdutoThis("Vassoura", 30.0, 30);
             Console.WriteLine(p5);
 
+
+            Console.WriteLine("====== Construtor primário .net8");
+            var carroNovo = new Carro(xxx???); //precisa passar um repository
+
+
         }
     }
 }

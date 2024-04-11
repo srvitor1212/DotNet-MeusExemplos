@@ -1,6 +1,11 @@
-﻿namespace POO_Construtores
+﻿namespace POO_Construtores;
+
+public class Carro(IRepositoryInterface repository) //Construtor primário, funciona a partir do .NET8
 {
-    public class Carro(ICarroInterface carro) //Construtor primário, funciona a partir do .NET8
+    private readonly IRepositoryInterface _repository = repository;
+
+    private bool CarTypeBrazilian()
     {
+        return _repository.BrazilianCar();
     }
 }

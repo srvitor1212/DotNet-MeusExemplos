@@ -1,6 +1,6 @@
 ﻿namespace POO_Construtores
 {
-    public interface ICarroInterface
+    public interface IRepositoryInterface
     {
         public bool BrazilianCar();
     }
