@@ -12,11 +12,6 @@ public static class Endpoints
         app.MapGet("/todoitems", async (ContextDb db) =>
             await db.Todos.ToListAsync());
 
-        app.MapGet("/todoitems-filtered", async (ContextDb db) =>
-        {
-            await db.Todos.ToListAsync();
-        });
-
 
 
 
