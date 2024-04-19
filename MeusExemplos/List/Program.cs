@@ -31,6 +31,13 @@ namespace MeuNameSpace
             listStrings[idx] = "João da Silva";
             Console.WriteLine("...localizando e alterando a lista");
             MostrarLista(listStrings);
+
+
+            // Caso não encontra na lista
+            var indice = listStrings.FindIndex(x => x.ToString() == "Não contém na lista");
+            Console.WriteLine("Caso não encontre na lista retorna: {0}", indice);
+            if (indice == -1)
+                Console.WriteLine("Não encontrado!");
         }
 
         static void MostrarLista<Tipo> (List<Tipo> values)
