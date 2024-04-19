@@ -20,5 +20,13 @@ Console.WriteLine("===============");
 var enumName = Enum.GetName(typeof(Direcao), Direcao.Sul);
 Console.WriteLine("Enum name: {0}", enumName);
 
-var enumDesciption = Enum.Parse(typeof(Direcao), Direcao.Norte.ToString());
+//private static string GetEnumDescription(int key)
+//{
+//    var result = (T)Enum.Parse(typeof(T), key.ToString(), true);
+
+//    return EnumExtension.GetDescription(result);
+//}
+
+var enumDesciption = (Direcao)Enum.Parse(typeof(Direcao), Direcao.Norte.ToString()); //todo: não ta funcionando corretamente
+//var enumDesciption = Enum.Parse(typeof(Direcao), Direcao.Norte.ToString());
 Console.WriteLine("Enum description: {0}" , enumDesciption);
