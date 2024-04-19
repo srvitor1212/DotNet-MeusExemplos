@@ -20,9 +20,17 @@ namespace MeuNameSpace
 
 
 
-            List<string> strings = new List<string> { "Maria", "João", "José" };
+            List<string> listStrings = new List<string> { "Maria", "João", "José" };
             Console.WriteLine("...strings"); 
-            MostrarLista(strings);
+            MostrarLista(listStrings);
+
+
+
+            // Localizar e alterar um dado na lista
+            var idx = listStrings.FindIndex(x => x.ToString() == "João");
+            listStrings[idx] = "João da Silva";
+            Console.WriteLine("...localizando e alterando a lista");
+            MostrarLista(listStrings);
         }
 
         static void MostrarLista<Tipo> (List<Tipo> values)
