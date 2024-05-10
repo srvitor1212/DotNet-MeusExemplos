@@ -1,7 +1,5 @@
 ﻿
 
-int code = 200;
-string name = "Vitor Vicente";
-
-string result = code + " - " + name;
-Console.WriteLine(result);
+double cost = 123423.083234;
+Console.WriteLine(cost.ToString("C",new System.Globalization.CultureInfo("pt-BR")));
+Console.WriteLine(cost.ToString("N2", System.Globalization.CultureInfo.GetCultureInfo("pt-BR")));
