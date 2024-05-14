@@ -56,9 +56,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeraisTemporario", "GeraisT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq", "Linq\Linq.csproj", "{CF968DD1-CEFF-4F5E-A4EA-DAACE60015F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stopwatch-Cronometro", "Stopwatch-Cronometro\Stopwatch-Cronometro.csproj", "{73D6DB78-E4E0-4420-94AA-E7BA2ABC6A0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stopwatch-Cronometro", "Stopwatch-Cronometro\Stopwatch-Cronometro.csproj", "{73D6DB78-E4E0-4420-94AA-E7BA2ABC6A0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArquivoCSV", "ArquivoCSV\ArquivoCSV.csproj", "{6864DBFC-1121-4F20-8EE1-837499AA6BE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArquivoCSV", "ArquivoCSV\ArquivoCSV.csproj", "{6864DBFC-1121-4F20-8EE1-837499AA6BE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTime Ex", "DateTime\DateTime Ex.csproj", "{6AA2E6AF-3E0A-4005-8DDB-008F29A28552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -162,6 +164,10 @@ Global
 		{6864DBFC-1121-4F20-8EE1-837499AA6BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6864DBFC-1121-4F20-8EE1-837499AA6BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6864DBFC-1121-4F20-8EE1-837499AA6BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AA2E6AF-3E0A-4005-8DDB-008F29A28552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA2E6AF-3E0A-4005-8DDB-008F29A28552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA2E6AF-3E0A-4005-8DDB-008F29A28552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA2E6AF-3E0A-4005-8DDB-008F29A28552}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -191,6 +197,7 @@ Global
 		{CF968DD1-CEFF-4F5E-A4EA-DAACE60015F0} = {BBBDB469-2BA4-4020-ACBE-CEA254C07243}
 		{73D6DB78-E4E0-4420-94AA-E7BA2ABC6A0F} = {BBBDB469-2BA4-4020-ACBE-CEA254C07243}
 		{6864DBFC-1121-4F20-8EE1-837499AA6BE6} = {BBBDB469-2BA4-4020-ACBE-CEA254C07243}
+		{6AA2E6AF-3E0A-4005-8DDB-008F29A28552} = {BBBDB469-2BA4-4020-ACBE-CEA254C07243}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2940B7B-53CF-4B90-B6F6-5696D223BF35}
