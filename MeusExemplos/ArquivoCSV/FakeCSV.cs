@@ -8,14 +8,18 @@
         public void GerarCSV(int linhas)
         {
             var nomeArquivo = "meu_arquivo.csv";
-            var rand = new Random();
-
-            using (var writer = new StreamWriter(nomeArquivo))
+            if ( !File.Exists(nomeArquivo) )
             {
-                writer.WriteLine("id;nome;valor");
-                for (int i = 0; i < linhas; i++)
+                Console.WriteLine("gerando csv...");
+
+                var rand = new Random();
+                using (var writer = new StreamWriter(nomeArquivo))
                 {
-                    writer.WriteLine($"{i};Nome do registro;{rand.NextDouble()}");
+                    writer.WriteLine("id;nome;valor");
+                    for (int i = 0; i < linhas; i++)
+                    {
+                        writer.WriteLine($"{i};Nome do registro;{rand.NextDouble()}");
+                    }
                 }
             }
 
