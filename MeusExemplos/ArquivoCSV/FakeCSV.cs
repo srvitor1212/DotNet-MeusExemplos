@@ -2,6 +2,9 @@
 {
     internal class FakeCSV
     {
+        public string dir { get; set; }
+        public string path { get; set; }
+
         public void GerarCSV(int linhas)
         {
             var nomeArquivo = "meu_arquivo.csv";
@@ -15,6 +18,9 @@
                     writer.WriteLine($"{i};Nome do registro;{rand.NextDouble()}");
                 }
             }
+
+            this.dir = Directory.GetCurrentDirectory();
+            this.path = this.dir + @"\" +nomeArquivo;
 
             Console.WriteLine("Arquivo gerado: {0}\\{1}", Directory.GetCurrentDirectory(), nomeArquivo);
         }
