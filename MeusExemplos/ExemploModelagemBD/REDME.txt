@@ -1,0 +1,8 @@
+
+
+Criar o banco de dados:
+
+	- Abrir um terminal no visual studio;
+	- cd .\ExemploModelagemBD\
+	- dotnet ef migrations add Initial
+	- dotnet ef database update
