@@ -5,9 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infra.Connect;
 
-public static class AdicionarSqlServer
+public static class DependencyInjectionSqlServer
 {
-    public static IServiceCollection AdicionarBancoDeDados(this IServiceCollection services,
+    public static IServiceCollection AdicionarSqlServer(this IServiceCollection services,
                                                            IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");

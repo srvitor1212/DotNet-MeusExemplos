@@ -9,7 +9,7 @@ builder.Services.AddSwaggerGen();
 
 
 //Adicionar meus serviços
-builder.Services.AdicionarBancoDeDados(builder.Configuration);
+builder.Services.AdicionarSqlServer(builder.Configuration);
 builder.Services.AddScoped<HelloWorld>();
 
 
