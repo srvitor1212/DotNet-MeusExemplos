@@ -1,6 +1,6 @@
-﻿namespace Domain;
+﻿namespace Domain.Entities;
 
-public abstract class EntityBase
+public class EntidadeBase
 {
     public Guid Id { get; protected set; }
 
@@ -11,13 +11,13 @@ public abstract class EntityBase
 
 
 
-    protected EntityBase()
+    protected EntidadeBase()
     {
         Id = Guid.NewGuid();
         SetDataCriacao();
     }
 
-    protected EntityBase(Guid id)
+    protected EntidadeBase(Guid id)
     {
         Id = id;
         SetDataCriacao();
