@@ -1,6 +1,6 @@
 ﻿namespace Domain.Entities;
 
-public class EntidadeBase
+public abstract class EntidadeBase
 {
     public Guid Id { get; protected set; }
 
