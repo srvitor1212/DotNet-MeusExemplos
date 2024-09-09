@@ -1,3 +1,5 @@
-﻿
+﻿using SOLID;
 
-Console.WriteLine("hello world");
+
+var valor = a1_Metodos_Static.MetodoEstatico(10);
+Console.WriteLine(valor);
