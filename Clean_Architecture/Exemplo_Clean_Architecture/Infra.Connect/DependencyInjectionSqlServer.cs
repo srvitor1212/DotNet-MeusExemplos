@@ -12,7 +12,8 @@ public static class DependencyInjectionSqlServer
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-        services.AddDbContext<ContextMeuBanco>(options => options.UseSqlServer(connectionString));
+        services.AddDbContext<ContextMeuBanco>(
+            options => options.UseSqlServer(connectionString, c => c.MigrationsAssembly(typeof(ContextMeuBanco).Assembly.FullName)) );
 
         return services;
     }
