@@ -1,8 +1,8 @@
 ﻿namespace SOLID;
 
-public class a1_Modificadores
+public class Modificadores
 {
-    public a1_Modificadores()
+    public Modificadores()
     {
         Console.WriteLine(@"
             MODIFICADORES DE ACESSO
