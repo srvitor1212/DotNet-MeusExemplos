@@ -1,4 +1,5 @@
 ﻿using SOLID;
+using SOLID.DIP.ExemploCorreto;
 using SOLID.OCP;
 
 Console.WriteLine("Hello World!");
@@ -45,3 +46,8 @@ Console.WriteLine($"{mario.Nome} salário {mario.CalculaPPR(1000)}");
 Console.WriteLine("= exemplo correto");
 SOLID.LSP.ExemploCorreto.Funcionario robson = new SOLID.LSP.ExemploCorreto.Gerente("Gerente Robson");
 Console.WriteLine($"{robson.Nome} tem um salário de {robson.CalcularSalario(1000)}, e ppr de {robson.CalculaPPR(1000)}");
+
+
+Console.WriteLine("\n\n=== exemplo DIP");
+var recuperar = new RecuperarSenha(new ConexaoSqlServer());
+recuperar.Recuperar();
