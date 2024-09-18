@@ -1,15 +1,28 @@
 
+	1 - Instalação de pacotes
+	1.1 - Acessar o diretório correto (Developer PowerShell)
+No diretório raiz, exemplo: ~\DotNet-MeusExemplos\ModeloProjetoCleanArch\ModeloProjetoCleanArch>
 
-	1 - Abrir o power shell na pasta raiz
-Exemplo: ~\DotNet-MeusExemplos\ModeloProjetoCleanArch\ModeloProjetoCleanArch
+	2 - Pacotes para (Infra.Connect)
+dotnet add .\Infra.Connect\Infra.Connect.csproj package Microsoft.Extensions.DependencyInjection
+dotnet add .\Infra.Connect\Infra.Connect.csproj package Microsoft.Extensions.Configuration
 
-	2 - Instalar os pacotes necessários
-dotnet add .\WebAPI\WebAPI.csproj package Microsoft.EntityFrameworkCore.SqlServer
-dotnet add .\WebAPI\WebAPI.csproj package Microsoft.EntityFrameworkCore.Tools
-dotnet add .\WebAPI\WebAPI.csproj package Microsoft.EntityFrameworkCore.Design
+	3 - Pacotes para (Infra.Data)
+dotnet add .\Infra.Data\Infra.Data.csproj package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add .\Infra.Data\Infra.Data.csproj package Microsoft.EntityFrameworkCore.Tools
+dotnet add .\Infra.Data\Infra.Data.csproj package Microsoft.EntityFrameworkCore.Design
 
-	3 - Criar uma migration
-dotnet ef migrations add Teste --project .\WebAPI\WebAPI.csproj
 
-	4 - Atualizar o banco de dados
-dotnet ef database update --project .\WebAPI\WebAPI.csproj
+
+	1 - Entity framework core
+	1.1 - Acessar o diretório correto (Developer PowerShell)
+No diretório raiz, exemplo: ~\DotNet-MeusExemplos\ModeloProjetoCleanArch\ModeloProjetoCleanArch>
+
+	2 - Criar uma migration
+dotnet ef migrations add <NOME_DA_MIGRATION> -v --project .\Infra.Data\Infra.Data.csproj --startup-project .\WebAPI\WebAPI.csproj
+
+	3 - Atualizar o banco de dados
+dotnet ef database update -v --project .\Infra.Data\Infra.Data.csproj --startup-project .\WebAPI\WebAPI.csproj
+
+	- Remover a última migration
+dotnet ef migrations remove -v --project .\Infra.Data\Infra.Data.csproj --startup-project .\WebAPI\WebAPI.csproj
