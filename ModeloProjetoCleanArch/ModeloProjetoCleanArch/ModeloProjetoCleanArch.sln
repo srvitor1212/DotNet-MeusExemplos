@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{9DA7A24F-BE76-4BE0-AE27-97EC8AEDDA23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{9DA7A24F-BE76-4BE0-AE27-97EC8AEDDA23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Data", "Infra.Data\Infra.Data.csproj", "{3E742B77-F8F8-4561-83EC-0DEB894E9533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra.Data", "Infra.Data\Infra.Data.csproj", "{3E742B77-F8F8-4561-83EC-0DEB894E9533}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Connect", "Infra.Connect\Infra.Connect.csproj", "{5D4DC5CA-F3A2-4958-8A03-F5E14F17F25E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra.Connect", "Infra.Connect\Infra.Connect.csproj", "{5D4DC5CA-F3A2-4958-8A03-F5E14F17F25E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{E103C211-1267-40CB-A094-E1CE5EB1E71E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{E103C211-1267-40CB-A094-E1CE5EB1E71E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{30CE22FA-0429-48B2-8107-925382629B95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{30CE22FA-0429-48B2-8107-925382629B95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Estrutura", "Estrutura", "{FA237126-2901-466B-82C4-79F64274A953}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{274DE0C2-AB43-401B-9F70-8253E6D6E77C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +46,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9DA7A24F-BE76-4BE0-AE27-97EC8AEDDA23} = {FA237126-2901-466B-82C4-79F64274A953}
+		{3E742B77-F8F8-4561-83EC-0DEB894E9533} = {FA237126-2901-466B-82C4-79F64274A953}
+		{5D4DC5CA-F3A2-4958-8A03-F5E14F17F25E} = {FA237126-2901-466B-82C4-79F64274A953}
+		{E103C211-1267-40CB-A094-E1CE5EB1E71E} = {FA237126-2901-466B-82C4-79F64274A953}
+		{30CE22FA-0429-48B2-8107-925382629B95} = {274DE0C2-AB43-401B-9F70-8253E6D6E77C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2E3E510-2B15-4BE0-890B-0BB94C999B9F}
