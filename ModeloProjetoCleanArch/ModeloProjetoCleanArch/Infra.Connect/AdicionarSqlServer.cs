@@ -10,9 +10,8 @@ public static class AdicionarSqlServer
     public static IServiceCollection AplicarSqlServer(this IServiceCollection services,
                                                       IConfiguration configuration)
     {
-        var stringConnection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MeuBancoDeDados;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
-        services.AddDbContext<MeuContext>(options =>
-                    options.UseSqlServer(stringConnection));
+        var stringConnection = configuration.GetConnectionString("DefaultConnection");
+        services.AddDbContext<MeuContext>(options => options.UseSqlServer(stringConnection));
 
         return services;
     }
