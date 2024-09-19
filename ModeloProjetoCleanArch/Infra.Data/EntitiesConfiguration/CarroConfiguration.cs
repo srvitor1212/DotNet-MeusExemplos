@@ -10,5 +10,9 @@ public class CarroConfiguration : IEntityTypeConfiguration<Carro>
     {
         // Método para configurações padrão
         builder.ConfiguracaoPadrao();
+
+        // Propriedades das colunas
+        builder.Property(x => x.Modelo)
+                .IsRequired();
     }
 }

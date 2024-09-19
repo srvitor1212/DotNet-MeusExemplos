@@ -1,5 +1,4 @@
 ﻿using Domain;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infra.Data.EntitiesConfiguration;
