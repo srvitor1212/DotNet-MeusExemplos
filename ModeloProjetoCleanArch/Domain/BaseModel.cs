@@ -2,7 +2,7 @@
 
 public abstract class BaseModel
 {
-    public Guid Id { get; protected set; }
+    public Guid Id { get; protected set; } = Guid.NewGuid();
     public DateTimeOffset DataCriacao { get; protected set; }
     public DateTimeOffset? DataAtualizacao { get; protected set; }
 

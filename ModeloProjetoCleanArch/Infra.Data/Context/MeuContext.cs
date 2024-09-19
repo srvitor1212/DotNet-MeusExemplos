@@ -9,5 +9,6 @@ public class MeuContext : DbContext
     {
     }
 
-    public DbSet<Categoria> Categoria { get; set; }
+    public DbSet<Carro> Carro {  get; set; }
+    public DbSet<Chassi> Chassi { get; set; }
 }
