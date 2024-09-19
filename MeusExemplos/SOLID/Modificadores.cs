@@ -39,6 +39,10 @@ public class Modificadores
                 classe: Ao informar na classe ela não pode ser herdada.
                 método: Imprede que seja sobre escrito(override)
                 propriedade: Imprede que seja sobre escrito(override)
+
+            virtual
+                A palavra-chave virtual é usada para modificar uma declaração de método, propriedade, indexador ou evento e 
+                permitir que ela seja substituída em uma classe derivada. Por exemplo, esse método pode ser substituído por qualquer classe que o herde
         ");
     }
 }
