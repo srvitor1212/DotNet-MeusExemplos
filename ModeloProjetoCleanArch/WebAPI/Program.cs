@@ -1,4 +1,5 @@
 using Infra.Connect;
+using WebAPI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Meus Serviços
 builder.Services.AplicarSqlServer(builder.Configuration);
+builder.Services.AplicarServices();
 
 
 
@@ -21,5 +23,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
+
+//Adicionar endpoints
+app.AdicionarEndpoints();
+
+
 
 app.Run();
