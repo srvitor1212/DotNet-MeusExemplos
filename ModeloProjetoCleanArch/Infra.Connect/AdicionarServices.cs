@@ -7,7 +7,7 @@ public static class AdicionarServices
 {
     public static IServiceCollection AplicarServices(this IServiceCollection services)
     {
-        services.AddScoped<UmPraUmConsultaService>();
+        services.AddScoped<CarrosPorData>();
 
         return services;
     }

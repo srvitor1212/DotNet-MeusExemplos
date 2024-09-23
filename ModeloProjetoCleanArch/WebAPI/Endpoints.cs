@@ -10,9 +10,8 @@ public static class Endpoints
     {
         app.MapGet("/carros",
             async ([AsParameters] UmPraUmPayload payload,
-                   [FromServices] UmPraUmConsultaService service) =>
+                   [FromServices] CarrosPorData service) =>
             {
-                //todo: fazer um repository e consultar no banco de dados;
                 return await service.Consultar(payload);
             }).WithTags("UmPraUm");
     }

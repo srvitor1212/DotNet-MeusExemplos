@@ -11,6 +11,7 @@ builder.Services.AddSwaggerGen();
 // Meus Serviços
 builder.Services.AplicarSqlServer(builder.Configuration);
 builder.Services.AplicarServices();
+builder.Services.AplicarRepositories();
 
 
 
