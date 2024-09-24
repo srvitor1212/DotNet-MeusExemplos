@@ -18,6 +18,14 @@ public static class Endpoints
                 return await service.Consultar(payload);
             }).WithTags("UmPraUm");
 
+
+        app.MapGet("carros-com-chassi",
+            async ([AsParameters] CarrosPayload payload,
+                   [FromServices] CarroComChassiService service) =>
+            {
+                return await service.Consultar(payload);
+            }).WithTags("UmPraUm");
+
         #endregion
     }
 }

@@ -8,6 +8,7 @@ public static class AdicionarServices
     public static IServiceCollection AplicarServices(this IServiceCollection services)
     {
         services.AddScoped<CarrosPorDataService>();
+        services.AddScoped<CarroComChassiService>();
 
         return services;
     }
