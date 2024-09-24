@@ -17,8 +17,8 @@ public class CarrosPorDataService : IConsulta<CarrosPayload, IEnumerable<CarrosR
 
     public async Task<IEnumerable<CarrosResponse>> Consultar(CarrosPayload payload)
     {
-        var carros = await _carroRepository.GetQueryable(x => x.DataCriacao > payload.dataCadastroInicial
-                                                           && x.DataCriacao < payload.dataCadastroFinal);
+        var carros = await _carroRepository.GetQueryable(x => x.DataCriacao >= payload.dataCadastroInicial
+                                                           && x.DataCriacao <= payload.dataCadastroFinal);
 
         var result = carros.Select(CarroAdapter.ToResponse).ToList();
 
