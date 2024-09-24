@@ -12,7 +12,7 @@ public static class Endpoints
         #region Um pra Um
 
         app.MapGet("/carros",
-            async ([AsParameters] UmPraUmPayload payload,
+            async ([AsParameters] CarrosPayload payload,
                    [FromServices] CarrosPorDataService service) =>
             {
                 return await service.Consultar(payload);

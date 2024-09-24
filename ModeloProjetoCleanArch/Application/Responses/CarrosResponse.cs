@@ -1,14 +1,14 @@
 ﻿namespace Application.Responses;
 
-public class UmPraUmResponse
+public class CarrosResponse
 {
     public string Nome { get; set; } = string.Empty;
 
-    public UmPraUmResponse()
+    public CarrosResponse()
     {
     }
 
-    public UmPraUmResponse(string nome)
+    public CarrosResponse(string nome)
     {
         Nome = nome;
     }

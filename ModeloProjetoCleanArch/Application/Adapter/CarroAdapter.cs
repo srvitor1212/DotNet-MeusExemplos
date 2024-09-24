@@ -5,6 +5,6 @@ namespace Application.Adapter;
 
 public static class CarroAdapter
 {
-    public static UmPraUmResponse ToResponse(this Carro model)
-        => new UmPraUmResponse(model.Modelo);
+    public static CarrosResponse ToResponse(this Carro model)
+        => new CarrosResponse(model.Modelo);
 }

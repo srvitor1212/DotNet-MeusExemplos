@@ -1,5 +1,5 @@
 ﻿namespace Application.Payloads;
 
-public record UmPraUmPayload(
+public record CarrosPayload(
     DateTimeOffset dataCadastroInicial, 
     DateTimeOffset dataFinalInicial);
