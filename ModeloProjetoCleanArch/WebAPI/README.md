@@ -16,7 +16,7 @@ dotnet add .\Infra.Data\Infra.Data.csproj package Microsoft.EntityFrameworkCore.
 
 	1 - Entity framework core
 	1.1 - Acessar o diretório correto (Developer PowerShell)
-No diretório raiz, exemplo: ~\DotNet-MeusExemplos\ModeloProjetoCleanArch\ModeloProjetoCleanArch>
+No diretório raiz, exemplo: ~\DotNet-MeusExemplos\ModeloProjetoCleanArch>
 
 	2 - Criar uma migration
 dotnet ef migrations add NomeDaMigration --project .\Infra.Data\Infra.Data.csproj --startup-project .\WebAPI\WebAPI.csproj

@@ -38,10 +38,11 @@ namespace Infra.Data.Migrations
             idCarro = Guid.NewGuid().ToString();
             idChassi = Guid.NewGuid().ToString();
             modelo = "Siena Sedan 2022";
+            var dataCriacao = new DateTimeOffset(2024, 01, 28, 22, 45, 48, TimeSpan.Zero).ToString("MM/dd/yyyy hh:mm:ss");
             migrationBuilder.Sql($"INSERT INTO Carro(Id, Modelo, DataCriacao) " +
-                                 $"VALUES ('{idCarro}', '{modelo}', '{dataAgora}');");
+                                 $"VALUES ('{idCarro}', '{modelo}', '{dataCriacao}');");
             migrationBuilder.Sql($"INSERT INTO Chassi(Id, NumeroDeSerie, CarroId, DataCriacao) " +
-                                 $"VALUES ('{idChassi}' , '987654321', '{idCarro}', '{dataAgora}');");
+                                 $"VALUES ('{idChassi}' , '987654321', '{idCarro}', '{dataCriacao}');");
 
 
         }

@@ -2,14 +2,10 @@
 
 public class CarrosResponse
 {
-    public string Nome { get; set; } = string.Empty;
-
-    public CarrosResponse()
-    {
-    }
+    public string Modelo { get; set; } = string.Empty;
 
     public CarrosResponse(string nome)
     {
-        Nome = nome;
+        Modelo = nome;
     }
 }
