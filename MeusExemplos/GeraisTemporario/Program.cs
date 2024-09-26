@@ -10,6 +10,8 @@ class Program
     static void Main(string[] args)
     {
 
+        Console.WriteLine(nameof(Teste));
+
         for (int i = 0; i < 100; i++)
         {
             Console.WriteLine(Guid.NewGuid());
@@ -17,4 +19,8 @@ class Program
     }
 }
 
+public class Teste()
+{
+
+}
 
