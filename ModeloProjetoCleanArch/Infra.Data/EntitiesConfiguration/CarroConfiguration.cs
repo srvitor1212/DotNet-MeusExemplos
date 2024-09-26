@@ -14,5 +14,11 @@ public class CarroConfiguration : IEntityTypeConfiguration<Carro>
         // Propriedades das colunas
         builder.Property(x => x.Modelo)
                 .IsRequired();
+
+        // 1:N - UM fabricante para MUITOS carros
+        builder.HasOne(x => x.Fabricante)
+                .WithMany(x => x.Carros)
+                .HasForeignKey(x => x.FabricanteId)
+                .OnDelete(DeleteBehavior.NoAction);
     }
 }

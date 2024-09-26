@@ -22,6 +22,31 @@ namespace Infra.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.Model.UmPraMuitos.Fabricante", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CNPJ")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset?>("DataAtualizacao")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset>("DataCriacao")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fabricante");
+                });
+
             modelBuilder.Entity("Domain.Model.UmPraUm.Carro", b =>
                 {
                     b.Property<Guid>("Id")
@@ -34,11 +59,16 @@ namespace Infra.Data.Migrations
                     b.Property<DateTimeOffset>("DataCriacao")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<Guid>("FabricanteId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Modelo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FabricanteId");
 
                     b.ToTable("Carro");
                 });
@@ -69,6 +99,17 @@ namespace Infra.Data.Migrations
                     b.ToTable("Chassi");
                 });
 
+            modelBuilder.Entity("Domain.Model.UmPraUm.Carro", b =>
+                {
+                    b.HasOne("Domain.Model.UmPraMuitos.Fabricante", "Fabricante")
+                        .WithMany("Carros")
+                        .HasForeignKey("FabricanteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fabricante");
+                });
+
             modelBuilder.Entity("Domain.Model.UmPraUm.Chassi", b =>
                 {
                     b.HasOne("Domain.Model.UmPraUm.Carro", "Carro")
@@ -78,6 +119,11 @@ namespace Infra.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Carro");
+                });
+
+            modelBuilder.Entity("Domain.Model.UmPraMuitos.Fabricante", b =>
+                {
+                    b.Navigation("Carros");
                 });
 
             modelBuilder.Entity("Domain.Model.UmPraUm.Carro", b =>

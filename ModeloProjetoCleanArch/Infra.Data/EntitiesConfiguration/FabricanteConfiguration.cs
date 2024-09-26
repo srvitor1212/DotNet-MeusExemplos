@@ -12,11 +12,10 @@ public class FabricanteConfiguration : IEntityTypeConfiguration<Fabricante>
         builder.ConfiguracaoPadrao();
 
         // Propriedades das colunas
-        //todo
+        builder.Property(x => x.Nome)
+            .IsRequired();
 
-        // Configura a FK
-        builder.HasMany(x => x.Carros)
-                .WithOne(x => x.Fabricante)
-                .HasForeignKey(x => x.FabricanteId);
+        builder.Property(x => x.CNPJ)
+            .IsRequired();
     }
 }
