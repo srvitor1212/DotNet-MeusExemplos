@@ -38,8 +38,8 @@ namespace Infra.Data.Migrations
 
             carro = new Carro() { Modelo = "Audi A3 Sedan", FabricanteId = fabricante.Id };
             chassi = new Chassi() { NumeroDeSerie = (uint)rd.Next(100000, 999999), CarroId = carro.Id };
-            InserirCarro(migrationBuilder, carro, data2);
-            InserirChassi(migrationBuilder, chassi, data2);
+            InserirCarro(migrationBuilder, carro, data3);
+            InserirChassi(migrationBuilder, chassi, data3);
 
             #endregion
 
@@ -59,8 +59,8 @@ namespace Infra.Data.Migrations
 
             carro = new Carro() { Modelo = "Ford Maverick", FabricanteId = fabricante.Id };
             chassi = new Chassi() { NumeroDeSerie = (uint)rd.Next(100000, 999999), CarroId = carro.Id };
-            InserirCarro(migrationBuilder, carro, data2);
-            InserirChassi(migrationBuilder, chassi, data2);
+            InserirCarro(migrationBuilder, carro, data3);
+            InserirChassi(migrationBuilder, chassi, data3);
 
             carro = new Carro() { Modelo = "Ford Ranger", FabricanteId = fabricante.Id };
             chassi = new Chassi() { NumeroDeSerie = (uint)rd.Next(100000, 999999), CarroId = carro.Id };
