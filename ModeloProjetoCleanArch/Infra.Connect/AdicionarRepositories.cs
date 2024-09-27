@@ -8,7 +8,9 @@ public static class AdicionarRepositories
 {
     public static IServiceCollection AplicarRepositories(this IServiceCollection services)
     {
+
         services.AddScoped<ICarroRepository, CarroRepository>();
+        services.AddScoped<IFabricanteRepository, FabricanteRepository>();
 
 
         return services;

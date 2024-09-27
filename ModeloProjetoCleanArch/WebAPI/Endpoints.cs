@@ -27,5 +27,17 @@ public static class Endpoints
             }).WithTags("UmPraUm");
 
         #endregion
+
+
+        #region Um pra Muitos
+
+        app.MapGet("carros-por-fabricante",
+            async ([AsParameters] FabricantePayload payload,
+                   [FromServices] CarrosPorFabricante service) => 
+            {
+                return await service.Consultar(payload);
+            }).WithTags("UmPraMuitos");
+
+        #endregion
     }
 }
