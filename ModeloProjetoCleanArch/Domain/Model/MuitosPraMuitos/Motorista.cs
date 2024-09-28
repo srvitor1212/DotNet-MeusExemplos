@@ -10,4 +10,5 @@ public class Motorista : BaseModel
 
     // Propriedade de navegação
     public ICollection<CarroMotorista> CarroMotorista { get; set; } = new List<CarroMotorista>();
+
 }

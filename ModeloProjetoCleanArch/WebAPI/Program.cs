@@ -1,4 +1,6 @@
 using Infra.Connect;
+using Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using WebAPI;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +31,11 @@ app.UseHttpsRedirection();
 
 //Adicionar endpoints
 app.AdicionarEndpoints();
+// Executar migrations
+using (var scope = app.Services.CreateScope())
+using (var context = scope.ServiceProvider.GetService<MeuContext>())
+    context!.Database.Migrate();
+    
 
 
 
