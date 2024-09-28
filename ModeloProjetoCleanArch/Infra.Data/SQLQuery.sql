@@ -10,3 +10,5 @@ from Fabricante f
 inner join Carro c		on c.FabricanteId = f.Id
 inner join Chassi ch	on ch.CarroId = c.Id
 order by f.Nome;
+
+select * from Carro;

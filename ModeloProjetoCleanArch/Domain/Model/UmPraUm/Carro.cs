@@ -1,4 +1,5 @@
-﻿using Domain.Model.UmPraMuitos;
+﻿using Domain.Model.MuitosPraMuitos;
+using Domain.Model.UmPraMuitos;
 
 namespace Domain.Model.UmPraUm;
 
@@ -9,9 +10,10 @@ public class Carro : BaseModel
 
     // Propriedade de navegação
     public Chassi Chassi { get;  set; } = null!;
+    public ICollection<CarroMotorista> CarroMotorista { get; set; } = new List<CarroMotorista>();
 
 
     // 1:N - UM carro MUITOS fabricante
     public Guid FabricanteId { get; set; }
-    public Fabricante Fabricante { get; set; } = null!;
+    public Fabricante Fabricante { get; set; } = null!;    
 }
