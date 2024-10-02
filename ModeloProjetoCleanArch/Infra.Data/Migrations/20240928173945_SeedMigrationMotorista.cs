@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infra.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedMigrationCarroMotorista : Migration
+    public partial class SeedMigrationMotorista : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,14 +15,6 @@ namespace Infra.Data.Migrations
             var data1 = new DateTimeOffset(2024, 02, 28, 22, 45, 48, TimeSpan.Zero).ToString("MM/dd/yyyy hh:mm:ss");
             var data2 = new DateTimeOffset(2024, 09, 14, 14, 00, 32, TimeSpan.Zero).ToString("MM/dd/yyyy hh:mm:ss");
             var data3 = new DateTimeOffset(2024, 12, 04, 08, 22, 47, TimeSpan.Zero).ToString("MM/dd/yyyy hh:mm:ss");
-
-            #region Pegar Carros
-
-            var query = $"SELECT * FROM Carro;";
-            var carros = migrationBuilder.Sql(query);
-            //todo pegar o id dos carros existentes para montar a tabela nova
-
-            #endregion
 
             #region Motorista
 
@@ -77,9 +69,6 @@ namespace Infra.Data.Migrations
 
             #endregion
 
-            #region CarroMotorista
-            #endregion
-
         }
 
         /// <inheritdoc />
@@ -96,16 +85,6 @@ namespace Infra.Data.Migrations
                 $"VALUES ('{obj.Id}', '{dataCriacao}', '{obj.Nome}', '{(int)obj.SituacaoCarteiraMotorista}', '{(int)obj.TipoCarteira}')" +
                 $";");
         }
-
-        private void InserirCarroMotorista(MigrationBuilder migrationBuilder,
-            CarroMotorista obj, string dataCriacao)
-        {
-            migrationBuilder.Sql(
-                $"INSERT INTO Motorista (Id, DataCriacao, CarroId, MotoristaId) " +
-                $"VALUES ('{obj.Id}', '{dataCriacao}', '{obj.CarroId}', '{obj.MotoristaId}')" +
-                $";");
-        }
-
 
     }
 }

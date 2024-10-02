@@ -13,7 +13,7 @@ namespace Infra.Data.Migrations
 {
     [DbContext(typeof(MeuContext))]
     [Migration("20240928173945_SeedMigrationCarroMotorista")]
-    partial class SeedMigrationCarroMotorista
+    partial class SeedMigrationMotorista
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

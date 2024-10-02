@@ -39,5 +39,16 @@ public static class Endpoints
             }).WithTags("UmPraMuitos");
 
         #endregion
+
+
+        #region Muitos pra Muitos
+
+        app.MapGet("listar-motoristas-e-carros",
+            async ([FromServices] ListarMotoristasECarrosService service) => 
+            {
+                return await service.Consultar();
+            }).WithTags("MuitosPraMuitos");
+
+        #endregion
     }
 }

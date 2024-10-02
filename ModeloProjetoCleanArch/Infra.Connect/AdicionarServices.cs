@@ -10,6 +10,7 @@ public static class AdicionarServices
         services.AddScoped<CarrosPorDataService>();
         services.AddScoped<CarroComChassiService>();
         services.AddScoped<CarrosPorFabricante>();
+        services.AddScoped<ListarMotoristasECarrosService>();
 
         return services;
     }
