@@ -29,6 +29,9 @@ public static class Endpoints
         #endregion
 
 
+
+
+
         #region Um pra Muitos
 
         app.MapGet("carros-por-fabricante",
@@ -41,6 +44,9 @@ public static class Endpoints
         #endregion
 
 
+
+
+
         #region Muitos pra Muitos
 
         app.MapGet("listar-motoristas-e-carros",
@@ -48,6 +54,8 @@ public static class Endpoints
             {
                 return await service.Consultar();
             }).WithTags("MuitosPraMuitos");
+
+        //todo: endpoint para cadastrar Motorista no Carro, relação N:N
 
         #endregion
     }
