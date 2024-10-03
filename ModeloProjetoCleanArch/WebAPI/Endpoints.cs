@@ -55,6 +55,14 @@ public static class Endpoints
                 return await service.Consultar();
             }).WithTags("MuitosPraMuitos");
 
+
+        app.MapPost("associar-motorista-ao-carro",
+            ([FromBody] MotoristaCarroPayload payload,
+             [FromServices] AddMotoristaCarroService service) => 
+            {
+                return service.Processar(payload);
+            });
+
         //todo: endpoint para cadastrar Motorista no Carro, relação N:N
 
         #endregion
