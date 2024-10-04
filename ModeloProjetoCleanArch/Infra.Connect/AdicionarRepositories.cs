@@ -12,6 +12,7 @@ public static class AdicionarRepositories
         services.AddScoped<ICarroRepository, CarroRepository>();
         services.AddScoped<IFabricanteRepository, FabricanteRepository>();
         services.AddScoped<IMotoristaRepository, MotoristaRepository>();
+        services.AddScoped<ICarroMotoristaRepository, CarroMotoristaRepository>();
 
 
         return services;

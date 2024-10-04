@@ -57,7 +57,7 @@ public static class Endpoints
 
 
         app.MapPost("associar-motorista-ao-carro",
-            ([FromBody] MotoristaCarroPayload payload,
+            ([FromBody] MotoristasCarrosPayload payload,
              [FromServices] AddMotoristaCarroService service) => 
             {
                 return service.Processar(payload);

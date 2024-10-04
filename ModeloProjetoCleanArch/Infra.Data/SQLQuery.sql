@@ -12,3 +12,8 @@ inner join Chassi ch	on ch.CarroId = c.Id
 order by f.Nome;
 
 select * from Carro;
+
+select * from CarroMotorista;
+
+select * from __EFMigrationsHistory;
+--delete __EFMigrationsHistory;

@@ -1,8 +1,8 @@
 ﻿namespace Application.Abstraction;
 
-public abstract class Comando<TPayload> : IComando<TPayload> where TPayload : IComandoPayload
+public abstract class Comando<T> : IComando<T> where T : IComandoPayload
 {
-    public Task Processar(TPayload payload)
+    public Task Processar(T payload)
     {
         if (!payload.IsValid())
             throw new InvalidDataException("Payload não é válido!");
@@ -10,7 +10,6 @@ public abstract class Comando<TPayload> : IComando<TPayload> where TPayload : IC
         try
         {
             var result = ExecutarComand(payload);
-
             return Task.FromResult(result);
         }
         catch (Exception ex)
@@ -19,5 +18,5 @@ public abstract class Comando<TPayload> : IComando<TPayload> where TPayload : IC
         }
     }
 
-    protected abstract Task ExecutarComand(TPayload payload);
+    protected abstract Task ExecutarComand(T payload);
 }

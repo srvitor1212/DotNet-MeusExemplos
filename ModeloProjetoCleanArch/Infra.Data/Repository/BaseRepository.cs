@@ -17,6 +17,12 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseModel
         _dbSet = _context.Set<T>();
     }
 
+    public Task Create(T entity)
+    {
+        _dbSet.Add(entity);
+        _context.SaveChanges();
+        return Task.CompletedTask;
+    }
 
     public Task<IQueryable<T>> GetQueryable(Expression<Func<T, bool>>? predicate = null)
     {
@@ -27,4 +33,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseModel
 
         return Task.FromResult(query);
     }
+
+    public Task<T?> GetSingleById(Guid id) 
+        => Task.FromResult(_dbSet.Find(id));
 }

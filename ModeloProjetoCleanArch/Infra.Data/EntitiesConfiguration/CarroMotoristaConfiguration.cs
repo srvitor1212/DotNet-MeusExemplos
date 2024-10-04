@@ -1,6 +1,7 @@
 ﻿using Domain.Model.MuitosPraMuitos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
 
 namespace Infra.Data.EntitiesConfiguration;
 
@@ -9,7 +10,9 @@ public class CarroMotoristaConfiguration : IEntityTypeConfiguration<CarroMotoris
     public void Configure(EntityTypeBuilder<CarroMotorista> builder)
     {
         // Método para configurações padrão
-        builder.ConfiguracaoPadrao();
+        //builder.ConfiguracaoPadrao();
+        builder.HasKey(c => new { c.CarroId, c.MotoristaId });
+
 
         // Propriedades das colunas
         builder.Property(x => x.CarroId)

@@ -9,4 +9,10 @@ public class CarroMotorista : BaseModel
 
     public Guid MotoristaId { get; set; }
     public Motorista Motorista { get; set; } = null!;
+
+    public CarroMotorista(Guid carroId, Guid motoristaId)
+    {
+        CarroId = carroId;
+        MotoristaId = motoristaId;
+    }
 }
