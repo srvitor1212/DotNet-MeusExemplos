@@ -1,20 +1,10 @@
-﻿using Domain.Enum;
+﻿using Application.Responses.Records;
 
 namespace Application.Responses;
 
 public class MotoristasECarrosResponse
 {
-    public IEnumerable<Carros> Carros { get; set; } = new List<Carros>();
+    public IEnumerable<CarrosRecord> Carros { get; set; } = new List<CarrosRecord>();
 
-    public IEnumerable<Motoristas> Motoristas { get; set; } = new List<Motoristas>();
+    public IEnumerable<MotoristasRecord> Motoristas { get; set; } = new List<MotoristasRecord>();
 }
-
-public record Carros(
-    Guid Id, 
-    string Modelo);
-
-public record Motoristas(
-    Guid Id,
-    string Nome,
-    string Situacao,
-    string TipoHabilitacao);

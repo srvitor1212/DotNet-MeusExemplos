@@ -4,8 +4,6 @@ public abstract class Comando<TPayload> : IComando<TPayload> where TPayload : IC
 {
     public Task Processar(TPayload payload)
     {
-        //todo continuar daqui
-
         if (!payload.IsValid())
             throw new InvalidDataException("Payload não é válido!");
 

@@ -61,9 +61,7 @@ public static class Endpoints
              [FromServices] AddMotoristaCarroService service) => 
             {
                 return service.Processar(payload);
-            });
-
-        //todo: endpoint para cadastrar Motorista no Carro, relação N:N
+            }).WithTags("MuitosPraMuitos");
 
         #endregion
     }
