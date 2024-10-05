@@ -24,7 +24,6 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
 
     protected override async Task<ServiceResult> ExecutarComand(MotoristasCarrosPayload payload)
     {
-
         var errors = await AdicionarVinculos(payload);
 
         if (errors.Count == 0)
@@ -35,7 +34,6 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
 
     private async Task<List<string>> AdicionarVinculos(MotoristasCarrosPayload payload)
     {
-
         var errors = new List<string>();
 
         foreach (var item in payload.Dados)
@@ -57,6 +55,5 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
         }
 
         return errors;
-
     }
 }
