@@ -36,13 +36,19 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
     {
         var errors = new List<string>();
 
-        foreach (var item in payload.Dados)
+        var dadosOrdenadosPorCarro = payload.Dados.Distinct()
+                                                  .OrderBy(x => x.CarroId)
+                                                  .ToList();
+
+        foreach (var item in dadosOrdenadosPorCarro) //todo: otimizar mais esse foreach
         {
             var carro = await _carroRepository.GetSingleById(item.CarroId);
 
             if (carro == null)
+            {
                 errors.Add($"CarroId não encontrado {item.CarroId}");
-
+                continue; //pula o registro da lista
+            }
 
             var motorista = await _motoristaRepository.GetSingleById(item.MotoristaId);
 
