@@ -1,22 +1,25 @@
-﻿namespace Application.Abstraction;
+﻿using Application.Message;
+
+namespace Application.Abstraction;
 
 public abstract class Comando<T> : IComando<T> where T : IComandoPayload
 {
-    public Task Processar(T payload)
+    public async Task<ServiceResult> Processar(T payload)
     {
         if (!payload.IsValid())
-            throw new InvalidDataException("Payload não é válido!");
+            return ServiceResult.Invalid("Payload não é válido");
 
         try
         {
-            var result = ExecutarComand(payload);
-            return Task.FromResult(result);
+            var result = await ExecutarComand(payload);
+
+            return result;
         }
         catch (Exception ex)
         {
-            throw new Exception($"Erro ao executar comando, exp: {ex}");
+            return ServiceResult.Invalid($"Erro ao executar comando, exp: {ex}");
         }
     }
 
-    protected abstract Task ExecutarComand(T payload);
+    protected abstract Task<ServiceResult> ExecutarComand(T payload);
 }

@@ -1,6 +1,8 @@
-﻿namespace Application.Abstraction;
+﻿using Application.Message;
+
+namespace Application.Abstraction;
 
 public interface IComando<TPayload>
 {
-    Task Processar(TPayload payload);
+    Task<ServiceResult> Processar(TPayload payload);
 }

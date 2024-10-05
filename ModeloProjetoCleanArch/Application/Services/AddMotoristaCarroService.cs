@@ -1,4 +1,5 @@
 ﻿using Application.Abstraction;
+using Application.Message;
 using Application.Payloads;
 using Domain.InterfaceRepository;
 using Domain.Model.MuitosPraMuitos;
@@ -8,33 +9,54 @@ namespace Application.Services;
 public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
 {
 
-    private readonly ICarroMotoristaRepository _carroMotoristaRepository;
+    private readonly ICarroMotoristaRepository _repository;
+    private readonly ICarroRepository _carroRepository;
     private readonly IMotoristaRepository _motoristaRepository;
 
     public AddMotoristaCarroService(ICarroMotoristaRepository carroMotoristaRepository,
-                                    IMotoristaRepository motoristaRepository)
+                                    IMotoristaRepository motoristaRepository,
+                                    ICarroRepository carroRepository)
     {
-        _carroMotoristaRepository = carroMotoristaRepository;
+        _repository = carroMotoristaRepository;
         _motoristaRepository = motoristaRepository;
+        _carroRepository = carroRepository;
     }
 
-    protected override async Task ExecutarComand(MotoristasCarrosPayload payload)
+    protected override async Task<ServiceResult> ExecutarComand(MotoristasCarrosPayload payload)
     {
 
-        //todo: retornar algum erro quando não existe motorista ou carro
-        foreach (var item in payload.Dados) {
+        var errors = await AdicionarVinculos(payload);
 
-            var carro = await _carroMotoristaRepository.GetSingleById(item.CarroId);
+        if (errors.Count == 0)
+            return ServiceResult.Ok();
+
+        return ServiceResult.Invalid($"Erro ao criar vinculos: {string.Join(", ", errors)}");
+    }
+
+    private async Task<List<string>> AdicionarVinculos(MotoristasCarrosPayload payload)
+    {
+
+        var errors = new List<string>();
+
+        foreach (var item in payload.Dados)
+        {
+            var carro = await _carroRepository.GetSingleById(item.CarroId);
 
             if (carro == null)
-                throw new InvalidDataException("CarroId inválido!");
+                errors.Add($"CarroId não encontrado {item.CarroId}");
 
-            var motorista = _motoristaRepository.GetSingleById(item.MotoristaId);
+
+            var motorista = await _motoristaRepository.GetSingleById(item.MotoristaId);
 
             if (motorista == null)
-                throw new InvalidDataException("MotoristaId inválido");
+                errors.Add($"MotoristaId não encontrado {item.MotoristaId}");
 
-            await _carroMotoristaRepository.Create(new CarroMotorista(item.CarroId, item.MotoristaId));
-        }        
+
+            if (carro != null && motorista != null)
+                await _repository.Create(new CarroMotorista(item.CarroId, item.MotoristaId));
+        }
+
+        return errors;
+
     }
 }

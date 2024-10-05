@@ -36,7 +36,7 @@ public static class Endpoints
 
         app.MapGet("carros-por-fabricante",
             async ([AsParameters] FabricantePayload payload,
-                   [FromServices] CarrosPorFabricante service) => 
+                   [FromServices] CarrosPorFabricante service) =>
             {
                 return await service.Consultar(payload);
             }).WithTags("UmPraMuitos");
@@ -50,17 +50,23 @@ public static class Endpoints
         #region Muitos pra Muitos
 
         app.MapGet("listar-motoristas-e-carros",
-            async ([FromServices] ListarMotoristasECarrosService service) => 
+            async ([FromServices] ListarMotoristasECarrosService service) =>
             {
                 return await service.Consultar();
             }).WithTags("MuitosPraMuitos");
 
 
         app.MapPost("associar-motorista-ao-carro",
-            ([FromBody] MotoristasCarrosPayload payload,
-             [FromServices] AddMotoristaCarroService service) => 
+            async ([FromBody] MotoristasCarrosPayload payload,
+            [FromServices] AddMotoristaCarroService service) =>
             {
-                return service.Processar(payload);
+                var result = await service.Processar(payload);
+
+                if (!result.Success)
+                    return Results.BadRequest(result.Message);
+
+                return Results.Created();
+
             }).WithTags("MuitosPraMuitos");
 
         #endregion
