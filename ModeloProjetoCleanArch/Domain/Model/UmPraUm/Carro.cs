@@ -7,7 +7,6 @@ public class Carro : BaseModel
 {
     public string Modelo { get; set; } = string.Empty;
 
-
     // Propriedade de navegação
     public Chassi Chassi { get;  set; } = null!;
     public ICollection<CarroMotorista> CarroMotorista { get; set; } = new List<CarroMotorista>();
@@ -15,5 +14,11 @@ public class Carro : BaseModel
 
     // 1:N - UM carro MUITOS fabricante
     public Guid FabricanteId { get; set; }
-    public Fabricante Fabricante { get; set; } = null!;    
+    public Fabricante Fabricante { get; set; } = null!;
+
+
+    // Construtor
+    public Carro() { }
+
+    public Carro(Guid Id) : base(Id) { }
 }

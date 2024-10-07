@@ -3,6 +3,7 @@ using Application.Message;
 using Application.Payloads;
 using Domain.InterfaceRepository;
 using Domain.Model.MuitosPraMuitos;
+using Domain.Model.UmPraUm;
 
 namespace Application.Services;
 
@@ -40,24 +41,30 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
                                                   .OrderBy(x => x.CarroId)
                                                   .ToList();
 
-        foreach (var item in dadosOrdenadosPorCarro) //todo: otimizar mais esse foreach
+        Carro? carro = new Carro(Guid.Empty);
+
+        foreach(var item in dadosOrdenadosPorCarro) //todo: testar
         {
-            var carro = await _carroRepository.GetSingleById(item.CarroId);
+            if (carro != null && item.CarroId == carro!.Id)
+                continue;
+                
+            carro = await _carroRepository.GetSingleById(item.CarroId);
 
             if (carro == null)
             {
-                errors.Add($"CarroId não encontrado {item.CarroId}");
-                continue; //pula o registro da lista
+                errors.Add($"CarroId {item.CarroId} não encontrado");
+                continue;
             }
 
             var motorista = await _motoristaRepository.GetSingleById(item.MotoristaId);
 
             if (motorista == null)
-                errors.Add($"MotoristaId não encontrado {item.MotoristaId}");
+            {
+                errors.Add($"MotoristaId {item.MotoristaId} não encontrado");
+                continue;
+            }
 
-
-            if (carro != null && motorista != null)
-                await _repository.Create(new CarroMotorista(item.CarroId, item.MotoristaId));
+            await _repository.Create(new CarroMotorista(item.CarroId, item.MotoristaId));
         }
 
         return errors;
