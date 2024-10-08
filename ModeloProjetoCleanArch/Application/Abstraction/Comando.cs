@@ -11,7 +11,7 @@ public abstract class Comando<T> : IComando<T> where T : IComandoPayload
 
         try
         {
-            var result = await ExecutarComand(payload);
+            var result = await ExecutarComando(payload);
 
             return result;
         }
@@ -21,5 +21,5 @@ public abstract class Comando<T> : IComando<T> where T : IComandoPayload
         }
     }
 
-    protected abstract Task<ServiceResult> ExecutarComand(T payload);
+    protected abstract Task<ServiceResult> ExecutarComando(T payload);
 }

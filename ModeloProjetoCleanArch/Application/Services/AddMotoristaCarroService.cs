@@ -23,7 +23,7 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
         _carroRepository = carroRepository;
     }
 
-    protected override async Task<ServiceResult> ExecutarComand(MotoristasCarrosPayload payload)
+    protected override async Task<ServiceResult> ExecutarComando(MotoristasCarrosPayload payload)
     {
         var errors = await AdicionarVinculos(payload);
 
