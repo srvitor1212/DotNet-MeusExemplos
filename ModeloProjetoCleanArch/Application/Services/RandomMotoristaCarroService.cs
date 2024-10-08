@@ -28,7 +28,6 @@ public class RandomMotoristaCarroService : IConsulta<IEnumerable<MotoristasCarro
 
         for (var i = 0; i < 100; i++)
         {
-            Console.Write(rand.Next(0, motoristas.Count));
             var motorista = motoristas[rand.Next(0, motoristas.Count)];
 
             var carro = carros[rand.Next(0, carros.Count)];

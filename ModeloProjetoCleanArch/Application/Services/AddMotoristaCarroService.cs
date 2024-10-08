@@ -1,9 +1,9 @@
 ﻿using Application.Abstraction;
 using Application.Message;
 using Application.Payloads;
+using Application.Payloads.Records;
 using Domain.InterfaceRepository;
 using Domain.Model.MuitosPraMuitos;
-using Domain.Model.UmPraUm;
 
 namespace Application.Services;
 
@@ -39,34 +39,39 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
 
         var dadosOrdenadosPorCarro = payload.Dados.Distinct()
                                                   .OrderBy(x => x.CarroId)
+                                                  .GroupBy(x => x.CarroId)
                                                   .ToList();
 
-        Carro? carro = new Carro(Guid.Empty);
-
-        foreach(var item in dadosOrdenadosPorCarro) //todo testar
+        foreach (var itemCarro in dadosOrdenadosPorCarro)
         {
-            if (carro != null && item.CarroId == carro!.Id)
-                continue; //todo ta pulando mas tem que adicionar o motorista 
-                
-            carro = await _carroRepository.GetSingleById(item.CarroId);
+            var carro = await _carroRepository.GetSingleById(itemCarro.Key);
 
             if (carro == null)
             {
-                errors.Add($"CarroId {item.CarroId} não encontrado");
+                errors.Add($"O id {itemCarro.Key} para carro não foi encontrado!");
                 continue;
             }
 
-            var motorista = await _motoristaRepository.GetSingleById(item.MotoristaId);
-
-            if (motorista == null)
-            {
-                errors.Add($"MotoristaId {item.MotoristaId} não encontrado");
-                continue;
-            }
-
-            await _repository.Create(new CarroMotorista(item.CarroId, item.MotoristaId));
+            await VincularCarroAosMotoristas(itemCarro, errors);
         }
 
         return errors;
+    }
+
+    private async Task VincularCarroAosMotoristas(IGrouping<Guid, MotoristasCarrosRecordPayload> itemCarro, List<string> errors)
+    {
+        foreach (var itemMotorista in itemCarro)
+        {
+            var motorista = await _motoristaRepository.GetSingleById(itemMotorista.MotoristaId);
+
+            if (motorista == null)
+            {
+                errors.Add($"O id {itemMotorista.MotoristaId} para motorista não foi encontrado!");
+                continue;
+            }
+
+            await _repository.Create(
+                new CarroMotorista(itemCarro.Key, itemMotorista.MotoristaId)); //todo: validar se o vinculo já existe;
+        }
     }
 }
