@@ -48,7 +48,7 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
 
             if (carro == null)
             {
-                errors.Add($"O id {itemCarro.Key} para carro não foi encontrado!");
+                errors.Add($"O id {itemCarro.Key} para carro não foi encontrado");
                 continue;
             }
 
@@ -66,7 +66,7 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
 
             if (motorista == null)
             {
-                errors.Add($"O id {itemMotorista.MotoristaId} para motorista não foi encontrado!");
+                errors.Add($"O id {itemMotorista.MotoristaId} para motorista não foi encontrado");
                 continue;
             }
 
