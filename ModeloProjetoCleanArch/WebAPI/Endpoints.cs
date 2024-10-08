@@ -76,6 +76,8 @@ public static class Endpoints
                 return await service.Consultar();
             }).WithTags("MuitosPraMuitos");
 
+        //todo: criar um endpoint pra mostrar carro e os motoristas vinculados
+
         #endregion
     }
 }
