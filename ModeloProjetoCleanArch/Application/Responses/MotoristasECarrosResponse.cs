@@ -4,7 +4,7 @@ namespace Application.Responses;
 
 public class MotoristasECarrosResponse
 {
-    public IEnumerable<CarrosRecord> Carros { get; set; } = new List<CarrosRecord>();
+    public IEnumerable<CarrosRecordResponse> Carros { get; set; } = new List<CarrosRecordResponse>();
 
-    public IEnumerable<MotoristasRecord> Motoristas { get; set; } = new List<MotoristasRecord>();
+    public IEnumerable<MotoristasRecordResponse> Motoristas { get; set; } = new List<MotoristasRecordResponse>();
 }

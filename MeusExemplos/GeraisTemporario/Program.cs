@@ -12,9 +12,11 @@ class Program
 
         Console.WriteLine(nameof(Teste));
 
+        var rand = new Random();
+
         for (int i = 0; i < 100; i++)
         {
-            Console.WriteLine(Guid.NewGuid());
+            Console.Write( rand.Next(minValue:0, maxValue: 2) );
         }
     }
 }

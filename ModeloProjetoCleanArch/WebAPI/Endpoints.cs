@@ -69,6 +69,13 @@ public static class Endpoints
 
             }).WithTags("MuitosPraMuitos");
 
+
+        app.MapGet("randomizar-associacao-motorista-com-carro",
+            async ([FromServices] RandomMotoristaCarroService service) =>
+            {
+                return await service.Consultar();
+            }).WithTags("MuitosPraMuitos");
+
         #endregion
     }
 }

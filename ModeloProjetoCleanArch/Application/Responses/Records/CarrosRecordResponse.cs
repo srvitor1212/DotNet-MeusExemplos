@@ -1,5 +1,5 @@
 ﻿namespace Application.Responses.Records;
 
-public record CarrosRecord(
+public record CarrosRecordResponse(
     Guid Id,
     string Modelo);

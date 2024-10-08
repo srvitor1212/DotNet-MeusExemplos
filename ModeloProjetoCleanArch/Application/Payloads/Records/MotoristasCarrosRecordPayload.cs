@@ -1,5 +1,5 @@
 ﻿namespace Application.Payloads.Records;
 
-public record MotoristasCarrosRecord(
+public record MotoristasCarrosRecordPayload(
     Guid MotoristaId,
     Guid CarroId);

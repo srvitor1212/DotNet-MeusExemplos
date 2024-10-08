@@ -1,6 +1,6 @@
 ﻿namespace Application.Responses.Records;
 
-public record MotoristasRecord(
+public record MotoristasRecordResponse(
     Guid Id,
     string Nome,
     string Situacao,

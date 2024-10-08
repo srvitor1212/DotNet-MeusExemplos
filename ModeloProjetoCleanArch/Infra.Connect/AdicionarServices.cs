@@ -13,6 +13,7 @@ public static class AdicionarServices
         services.AddScoped<ListarMotoristasECarrosService>();
         services.AddScoped<AddMotoristaCarroService>();
         services.AddScoped<AddMotoristaCarroService>();
+        services.AddScoped<RandomMotoristaCarroService>();
 
         return services;
     }

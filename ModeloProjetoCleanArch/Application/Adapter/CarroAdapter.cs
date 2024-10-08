@@ -12,6 +12,6 @@ public static class CarroAdapter
     public static CarroChassiResponse ToResponseCarroChassi(this Carro model)
         => new CarroChassiResponse(model.Modelo, model.Chassi.NumeroDeSerie);
 
-    public static CarrosRecord ToCarros(this Carro model)
-        => new CarrosRecord(model.Id, model.Modelo);
+    public static CarrosRecordResponse ToCarros(this Carro model)
+        => new CarrosRecordResponse(model.Id, model.Modelo);
 }

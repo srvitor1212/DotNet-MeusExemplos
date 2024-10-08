@@ -5,7 +5,7 @@ namespace Application.Payloads;
 
 public class MotoristasCarrosPayload : IComandoPayload
 {
-    public List<MotoristasCarrosRecord> Dados { get; set; } = new List<MotoristasCarrosRecord>();
+    public List<MotoristasCarrosRecordPayload> Dados { get; set; } = new List<MotoristasCarrosRecordPayload>();
 
     public bool IsValid()
         => Dados != null && Dados.Count > 0;
