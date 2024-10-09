@@ -70,9 +70,9 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
                 continue;
             }
 
-            //todo: validar se o vinculo já existe;
+            //todo: validar se o vinculo já existe e implementar método Create
             //await _repository.Create(
-            //    new CarroMotorista(itemCarro.Key, itemMotorista.MotoristaId)); 
+            //    new CarroMotorista(itemCarro.Key, itemMotorista.MotoristaId));
         }
     }
 }

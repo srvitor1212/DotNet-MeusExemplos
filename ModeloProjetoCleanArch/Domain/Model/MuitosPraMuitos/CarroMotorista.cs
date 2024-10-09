@@ -8,6 +8,9 @@ namespace Domain.Model.MuitosPraMuitos;
  * E nesse caso queremos uma chave composta de {CarroId, MotoristaId} */
 public class CarroMotorista 
 {
+
+    //todo criar uma classe vase com updatedAt e CreatedAt para herdar aqui
+
     public Guid CarroId { get; set; }
     public Carro Carro { get; set; } = null!;
 
