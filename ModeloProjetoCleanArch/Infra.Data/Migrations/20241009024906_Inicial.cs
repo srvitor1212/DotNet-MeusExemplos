@@ -27,6 +27,22 @@ namespace Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Motorista",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SituacaoCarteiraMotorista = table.Column<int>(type: "int", nullable: false),
+                    TipoCarteira = table.Column<int>(type: "int", nullable: false),
+                    DataCriacao = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    DataAtualizacao = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Motorista", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Carro",
                 columns: table => new
                 {
@@ -43,6 +59,29 @@ namespace Infra.Data.Migrations
                         name: "FK_Carro_Fabricante_FabricanteId",
                         column: x => x.FabricanteId,
                         principalTable: "Fabricante",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CarroMotorista",
+                columns: table => new
+                {
+                    CarroId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MotoristaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CarroMotorista", x => new { x.CarroId, x.MotoristaId });
+                    table.ForeignKey(
+                        name: "FK_CarroMotorista_Carro_CarroId",
+                        column: x => x.CarroId,
+                        principalTable: "Carro",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CarroMotorista_Motorista_MotoristaId",
+                        column: x => x.MotoristaId,
+                        principalTable: "Motorista",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -74,6 +113,11 @@ namespace Infra.Data.Migrations
                 column: "FabricanteId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CarroMotorista_MotoristaId",
+                table: "CarroMotorista",
+                column: "MotoristaId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Chassi_CarroId",
                 table: "Chassi",
                 column: "CarroId",
@@ -84,7 +128,13 @@ namespace Infra.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "CarroMotorista");
+
+            migrationBuilder.DropTable(
                 name: "Chassi");
+
+            migrationBuilder.DropTable(
+                name: "Motorista");
 
             migrationBuilder.DropTable(
                 name: "Carro");

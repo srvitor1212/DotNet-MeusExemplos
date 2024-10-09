@@ -1,7 +1,6 @@
 ﻿using Domain.Model.MuitosPraMuitos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Reflection.Emit;
 
 namespace Infra.Data.EntitiesConfiguration;
 
@@ -9,8 +8,7 @@ public class CarroMotoristaConfiguration : IEntityTypeConfiguration<CarroMotoris
 {
     public void Configure(EntityTypeBuilder<CarroMotorista> builder)
     {
-        // Método para configurações padrão
-        //builder.ConfiguracaoPadrao();
+        // Como é chave composta não queremos usar o BaseConfiguration.ConfiguracaoPadrao
         builder.HasKey(c => new { c.CarroId, c.MotoristaId });
 
 
@@ -21,7 +19,7 @@ public class CarroMotoristaConfiguration : IEntityTypeConfiguration<CarroMotoris
         builder.Property(x => x.MotoristaId)
             .IsRequired();
 
-        
+
         // N:N - MUITOS carros pra MUITOS motoristas
         builder.HasOne(x => x.Carro)
             .WithMany(x => x.CarroMotorista)
@@ -29,7 +27,7 @@ public class CarroMotoristaConfiguration : IEntityTypeConfiguration<CarroMotoris
 
         builder.HasOne(x => x.Motorista)
             .WithMany(x => x.CarroMotorista)
-            .HasForeignKey(x=> x.MotoristaId);
+            .HasForeignKey(x => x.MotoristaId);
 
 
 

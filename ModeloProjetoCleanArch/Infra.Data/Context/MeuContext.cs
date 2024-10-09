@@ -11,9 +11,15 @@ public class MeuContext : DbContext
     {
     }
 
-    public DbSet<Carro> Carro {  get; set; }
+    public DbSet<Carro> Carro { get; set; }
     public DbSet<Chassi> Chassi { get; set; }
     public DbSet<Fabricante> Fabricante { get; set; }
     public DbSet<Motorista> Motorista { get; set; }
     public DbSet<CarroMotorista> CarroMotorista { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(MeuContext).Assembly);
+    }
 }

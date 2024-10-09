@@ -24,25 +24,13 @@ namespace Infra.Data.Migrations
 
             modelBuilder.Entity("Domain.Model.MuitosPraMuitos.CarroMotorista", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("CarroId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTimeOffset?>("DataAtualizacao")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<DateTimeOffset>("DataCriacao")
-                        .HasColumnType("datetimeoffset");
 
                     b.Property<Guid>("MotoristaId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarroId");
+                    b.HasKey("CarroId", "MotoristaId");
 
                     b.HasIndex("MotoristaId");
 
@@ -177,7 +165,7 @@ namespace Infra.Data.Migrations
                     b.HasOne("Domain.Model.UmPraMuitos.Fabricante", "Fabricante")
                         .WithMany("Carros")
                         .HasForeignKey("FabricanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Fabricante");

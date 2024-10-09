@@ -2,7 +2,11 @@
 
 namespace Domain.Model.MuitosPraMuitos;
 
-public class CarroMotorista : BaseModel
+
+/* Nesse caso não herda de BaseModel pois não queremos uma coluna Id.
+ * Caso tenha uma coluna Id o entity automáticamente coloca ela como PK.
+ * E nesse caso queremos uma chave composta de {CarroId, MotoristaId} */
+public class CarroMotorista 
 {
     public Guid CarroId { get; set; }
     public Carro Carro { get; set; } = null!;
