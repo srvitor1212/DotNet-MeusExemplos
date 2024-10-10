@@ -6,7 +6,5 @@ namespace Infra.Data.Repository;
 
 public class MotoristaRepository : BaseModelRepository<Motorista>, IMotoristaRepository
 {
-    public MotoristaRepository(MeuContext context) : base(context)
-    {
-    }
+    public MotoristaRepository(MeuContext context) : base(context) { }
 }
