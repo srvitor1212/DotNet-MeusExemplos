@@ -11,4 +11,6 @@ public interface ICoreRepository<T> where T : Core
 
     Task<T?> GetSingleById(Guid id1, Guid? id2 = null);
 
+    Task Update(T entity);
+
 }

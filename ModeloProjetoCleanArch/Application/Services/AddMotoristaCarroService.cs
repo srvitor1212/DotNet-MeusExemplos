@@ -70,9 +70,12 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
                 continue;
             }
 
-            //todo: validar oque acontece caso já exista
-            await _repository.Create(
-                new CarroMotorista(itemCarro.Key, itemMotorista.MotoristaId));
+            var vinculo = await _repository.GetSingleById(itemCarro.Key, itemMotorista.MotoristaId);
+
+            if (vinculo == null)
+                await _repository.Create(new CarroMotorista(itemCarro.Key, itemMotorista.MotoristaId));
+            else
+                await _repository.Update(vinculo);
         }
     }
 }
