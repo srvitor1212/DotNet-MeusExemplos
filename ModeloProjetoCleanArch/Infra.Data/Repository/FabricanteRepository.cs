@@ -1,6 +1,7 @@
 ﻿using Domain.InterfaceRepository;
 using Domain.Model.UmPraMuitos;
 using Infra.Data.Context;
+using Infra.Data.Repository.Base;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 

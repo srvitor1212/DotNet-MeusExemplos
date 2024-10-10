@@ -1,4 +1,5 @@
-﻿using Domain.Model.MuitosPraMuitos;
+﻿using Domain.InterfaceRepository.Base;
+using Domain.Model.MuitosPraMuitos;
 
 namespace Domain.InterfaceRepository;
 

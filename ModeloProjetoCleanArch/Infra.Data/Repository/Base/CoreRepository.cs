@@ -1,17 +1,19 @@
-﻿using Domain.InterfaceRepository;
-using Domain.Model;
+﻿using Domain.InterfaceRepository.Base;
+using Domain.Model.Base;
 using Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Linq;
 
-namespace Infra.Data.Repository;
+namespace Infra.Data.Repository.Base;
 
-public class BaseModelRepository<T> : IBaseModelRepository<T> where T : BaseModel
+public abstract class CoreRepository<T> : ICoreRepository<T> where T : Core
 {
+
     protected readonly MeuContext _context;
     protected readonly DbSet<T> _dbSet;
 
-    public BaseModelRepository(MeuContext context)
+    protected CoreRepository(MeuContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();
@@ -34,6 +36,9 @@ public class BaseModelRepository<T> : IBaseModelRepository<T> where T : BaseMode
         return Task.FromResult(query);
     }
 
-    public Task<T?> GetSingleById(Guid id) 
-        => Task.FromResult(_dbSet.Find(id));
+    public Task<T?> GetSingleById(Guid id1, Guid? id2 = null)
+        => Task.FromResult(id2 is null ? _dbSet.Find(id1)
+                                        : _dbSet.Find(id1, id2));
+
+
 }

@@ -1,4 +1,5 @@
 ﻿using Domain.Enum;
+using Domain.Model.Base;
 
 namespace Domain.Model.MuitosPraMuitos;
 

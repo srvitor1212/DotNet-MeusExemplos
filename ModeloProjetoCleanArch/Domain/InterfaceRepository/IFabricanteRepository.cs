@@ -1,4 +1,5 @@
-﻿using Domain.Model.UmPraMuitos;
+﻿using Domain.InterfaceRepository.Base;
+using Domain.Model.UmPraMuitos;
 using System.Linq.Expressions;
 
 namespace Domain.InterfaceRepository;

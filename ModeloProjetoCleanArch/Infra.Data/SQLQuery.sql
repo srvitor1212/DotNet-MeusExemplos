@@ -1,5 +1,14 @@
 ﻿
 
+-- todas as tabelas
+select * from Carro;
+select * from CarroMotorista;
+select * from Chassi;
+select * from Fabricante;
+select * from Motorista;
+
+--
+
 select * from Fabricante f
 inner join Carro c		on c.FabricanteId = f.Id
 inner join Chassi ch	on ch.CarroId = c.Id
