@@ -1,5 +1,4 @@
 ﻿using Domain.Model.Base;
-using System.Linq.Expressions;
 
 namespace Domain.InterfaceRepository.Base;
 
