@@ -1,8 +1,9 @@
 ﻿using System.Linq.Expressions;
+using Domain.Model;
 
 namespace Domain.InterfaceRepository;
 
-public interface IBaseRepository<T> where T : BaseModel
+public interface IBaseModelRepository<T> where T : BaseModel
 {
     Task<IQueryable<T>> GetQueryable(Expression<Func<T, bool>>? predicate = null);
 

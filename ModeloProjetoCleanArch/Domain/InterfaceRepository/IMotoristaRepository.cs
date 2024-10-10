@@ -2,6 +2,6 @@
 
 namespace Domain.InterfaceRepository;
 
-public interface IMotoristaRepository : IBaseRepository<Motorista>
+public interface IMotoristaRepository : IBaseModelRepository<Motorista>
 {
 }

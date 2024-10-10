@@ -1,6 +1,4 @@
-﻿using Domain.Model.MuitosPraMuitos;
-
-namespace Domain.InterfaceRepository;
+﻿namespace Domain.InterfaceRepository;
 
 public interface ICarroMotoristaRepository
 {

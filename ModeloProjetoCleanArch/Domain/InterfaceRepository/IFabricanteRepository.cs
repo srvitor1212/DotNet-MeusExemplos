@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace Domain.InterfaceRepository;
 
-public interface IFabricanteRepository : IBaseRepository<Fabricante>
+public interface IFabricanteRepository : IBaseModelRepository<Fabricante>
 {
     Task<IQueryable<Fabricante>> GetQueryableWithIncludes(Expression<Func<Fabricante, bool>>? predicate = null);
 }

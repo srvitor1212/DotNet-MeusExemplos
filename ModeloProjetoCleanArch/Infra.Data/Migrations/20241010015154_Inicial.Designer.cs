@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Data.Migrations
 {
     [DbContext(typeof(MeuContext))]
-    [Migration("20241010012833_SeedMigration")]
-    partial class SeedMigration
+    [Migration("20241010015154_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,54 @@ namespace Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Domain.Model.MuitosPraMuitos.CarroMotorista", b =>
+                {
+                    b.Property<Guid>("CarroId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MotoristaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset?>("DataAtualizacao")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset>("DataCriacao")
+                        .HasColumnType("datetimeoffset");
+
+                    b.HasKey("CarroId", "MotoristaId");
+
+                    b.HasIndex("MotoristaId");
+
+                    b.ToTable("CarroMotorista");
+                });
+
+            modelBuilder.Entity("Domain.Model.MuitosPraMuitos.Motorista", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset?>("DataAtualizacao")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset>("DataCriacao")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SituacaoCarteiraMotorista")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoCarteira")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Motorista");
+                });
 
             modelBuilder.Entity("Domain.Model.UmPraMuitos.Fabricante", b =>
                 {
@@ -102,12 +150,31 @@ namespace Infra.Data.Migrations
                     b.ToTable("Chassi");
                 });
 
+            modelBuilder.Entity("Domain.Model.MuitosPraMuitos.CarroMotorista", b =>
+                {
+                    b.HasOne("Domain.Model.UmPraUm.Carro", "Carro")
+                        .WithMany("CarroMotorista")
+                        .HasForeignKey("CarroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Model.MuitosPraMuitos.Motorista", "Motorista")
+                        .WithMany("CarroMotorista")
+                        .HasForeignKey("MotoristaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Carro");
+
+                    b.Navigation("Motorista");
+                });
+
             modelBuilder.Entity("Domain.Model.UmPraUm.Carro", b =>
                 {
                     b.HasOne("Domain.Model.UmPraMuitos.Fabricante", "Fabricante")
                         .WithMany("Carros")
                         .HasForeignKey("FabricanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Fabricante");
@@ -124,6 +191,11 @@ namespace Infra.Data.Migrations
                     b.Navigation("Carro");
                 });
 
+            modelBuilder.Entity("Domain.Model.MuitosPraMuitos.Motorista", b =>
+                {
+                    b.Navigation("CarroMotorista");
+                });
+
             modelBuilder.Entity("Domain.Model.UmPraMuitos.Fabricante", b =>
                 {
                     b.Navigation("Carros");
@@ -131,6 +203,8 @@ namespace Infra.Data.Migrations
 
             modelBuilder.Entity("Domain.Model.UmPraUm.Carro", b =>
                 {
+                    b.Navigation("CarroMotorista");
+
                     b.Navigation("Chassi")
                         .IsRequired();
                 });

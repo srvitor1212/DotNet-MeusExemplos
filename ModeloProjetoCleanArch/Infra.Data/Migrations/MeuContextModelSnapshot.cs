@@ -30,6 +30,12 @@ namespace Infra.Data.Migrations
                     b.Property<Guid>("MotoristaId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTimeOffset?>("DataAtualizacao")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset>("DataCriacao")
+                        .HasColumnType("datetimeoffset");
+
                     b.HasKey("CarroId", "MotoristaId");
 
                     b.HasIndex("MotoristaId");

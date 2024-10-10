@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Data.Migrations
 {
     [DbContext(typeof(MeuContext))]
-    [Migration("20241010012826_Inicial")]
-    partial class Inicial
+    [Migration("20241010015211_SeedMigrationMotorista")]
+    partial class SeedMigrationMotorista
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,13 +27,25 @@ namespace Infra.Data.Migrations
 
             modelBuilder.Entity("Domain.Model.MuitosPraMuitos.CarroMotorista", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("CarroId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset?>("DataAtualizacao")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset>("DataCriacao")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<Guid>("MotoristaId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("CarroId", "MotoristaId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarroId");
 
                     b.HasIndex("MotoristaId");
 
@@ -168,7 +180,7 @@ namespace Infra.Data.Migrations
                     b.HasOne("Domain.Model.UmPraMuitos.Fabricante", "Fabricante")
                         .WithMany("Carros")
                         .HasForeignKey("FabricanteId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Fabricante");

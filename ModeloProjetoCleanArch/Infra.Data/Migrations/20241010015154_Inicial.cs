@@ -67,7 +67,9 @@ namespace Infra.Data.Migrations
                 columns: table => new
                 {
                     CarroId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MotoristaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    MotoristaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DataCriacao = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    DataAtualizacao = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
                 },
                 constraints: table =>
                 {

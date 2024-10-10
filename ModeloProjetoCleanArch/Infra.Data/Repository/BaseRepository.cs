@@ -1,12 +1,12 @@
-﻿using Domain;
-using Domain.InterfaceRepository;
+﻿using Domain.InterfaceRepository;
+using Domain.Model;
 using Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Infra.Data.Repository;
 
-public class BaseRepository<T> : IBaseRepository<T> where T : BaseModel
+public class BaseRepository<T> : IBaseModelRepository<T> where T : BaseModel
 {
     protected readonly MeuContext _context;
     protected readonly DbSet<T> _dbSet;
