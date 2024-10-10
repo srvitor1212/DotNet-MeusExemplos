@@ -21,3 +21,5 @@ public class CarroMotorista : Core
         MotoristaId = motoristaId;
     }
 }
+
+//todo: como ficaria outra tabela se relacionace com essa daqui que é chave composta ?
