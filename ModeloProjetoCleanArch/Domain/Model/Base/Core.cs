@@ -2,9 +2,9 @@
 
 public abstract class Core
 {
-    public DateTimeOffset DataCriacao { get; set; } = DateTimeOffset.Now;
-    public DateTimeOffset? DataAtualizacao { get; set; }
+    public DateTimeOffset DataCriacao { get; private set; } = DateTimeOffset.Now;
+    public DateTimeOffset? DataAtualizacao { get; private set; }
 
     public void SetDataAtualizacao() => DataAtualizacao = DateTimeOffset.Now;
-    public void SetDataAtualizacao(DateTimeOffset date) => date = DateTimeOffset.Now;
+    public void SetDataAtualizacao(DateTimeOffset date) => DataAtualizacao = date;
 }

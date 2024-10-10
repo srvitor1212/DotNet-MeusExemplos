@@ -7,8 +7,6 @@ namespace Infra.Data.Repository;
 
 public class CarroMotoristaRepository : CoreRepository<CarroMotorista>, ICarroMotoristaRepository
 {
-
-    //todo: verificar a viabilidade e possibilidade de criar uma BaseConfiguration para esse tipo de tabela
     public CarroMotoristaRepository(MeuContext context) : base(context)
     {
     }

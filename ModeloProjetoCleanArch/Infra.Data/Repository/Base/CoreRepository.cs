@@ -3,6 +3,7 @@ using Domain.Model.Base;
 using Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Linq;
 
 namespace Infra.Data.Repository.Base;
 
@@ -34,5 +35,10 @@ public abstract class CoreRepository<T> : ICoreRepository<T> where T : Core
 
         return Task.FromResult(query);
     }
+
+    public Task<T?> GetSingleById(Guid id1, Guid? id2 = null)
+        => Task.FromResult(id2 is null ? _dbSet.Find(id1)
+                                        : _dbSet.Find(id1, id2));
+
 
 }
