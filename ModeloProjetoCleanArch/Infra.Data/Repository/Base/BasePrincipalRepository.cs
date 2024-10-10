@@ -4,14 +4,16 @@ using Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Infra.Data.Repository;
+namespace Infra.Data.Repository.Base;
 
-public class BaseModelRepository<T> : IBaseModelRepository<T> where T : BaseModel
+public abstract class BasePrincipalRepository<T> : 
+                        IBasePrincipalRepository<T> where T : BasePrincipal
 {
+
     protected readonly MeuContext _context;
     protected readonly DbSet<T> _dbSet;
 
-    public BaseModelRepository(MeuContext context)
+    protected BasePrincipalRepository(MeuContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();
@@ -34,6 +36,5 @@ public class BaseModelRepository<T> : IBaseModelRepository<T> where T : BaseMode
         return Task.FromResult(query);
     }
 
-    public Task<T?> GetSingleById(Guid id) 
-        => Task.FromResult(_dbSet.Find(id));
+
 }

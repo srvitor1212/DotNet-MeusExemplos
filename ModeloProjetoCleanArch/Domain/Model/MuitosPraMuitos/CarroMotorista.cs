@@ -6,7 +6,7 @@ namespace Domain.Model.MuitosPraMuitos;
 /* Nesse caso não herda de BaseModel pois não queremos uma coluna Id.
  * Caso tenha uma coluna Id o entity automáticamente coloca ela como PK.
  * E nesse caso queremos uma chave composta de {CarroId, MotoristaId} */
-public class CarroMotorista : BaseDates
+public class CarroMotorista : BasePrincipal
 {
 
     //todo criar uma classe vase com updatedAt e CreatedAt para herdar aqui

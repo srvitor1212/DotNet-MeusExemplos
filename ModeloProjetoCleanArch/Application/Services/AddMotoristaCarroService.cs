@@ -3,6 +3,7 @@ using Application.Message;
 using Application.Payloads;
 using Application.Payloads.Records;
 using Domain.InterfaceRepository;
+using Domain.Model.MuitosPraMuitos;
 
 namespace Application.Services;
 
@@ -70,8 +71,8 @@ public class AddMotoristaCarroService : Comando<MotoristasCarrosPayload>
             }
 
             //todo: validar se o vinculo já existe e implementar método Create
-            //await _repository.Create(
-            //    new CarroMotorista(itemCarro.Key, itemMotorista.MotoristaId));
+            await _repository.Create(
+                new CarroMotorista(itemCarro.Key, itemMotorista.MotoristaId));
         }
     }
 }
