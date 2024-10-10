@@ -1,11 +1,11 @@
-﻿using Domain.InterfaceRepository;
-using Domain.Model;
+﻿using Domain.InterfaceRepository.Base;
+using Domain.Model.Base;
 using Infra.Data.Context;
 
 namespace Infra.Data.Repository.Base;
 
 public abstract class BaseModelRepository<T> : 
-                        BasePrincipalRepository<T>,
+                        CoreRepository<T>,
                         IBaseModelRepository<T> where T : BaseModel
 {
 

@@ -1,4 +1,6 @@
-﻿namespace Domain.Model.UmPraUm;
+﻿using Domain.Model.Base;
+
+namespace Domain.Model.UmPraUm;
 
 public class Chassi : BaseModel
 {

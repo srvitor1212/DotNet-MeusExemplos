@@ -1,6 +1,6 @@
-﻿namespace Domain.Model;
+﻿namespace Domain.Model.Base;
 
-public abstract class BaseModel : BasePrincipal
+public abstract class BaseModel : Core
 {
     public Guid Id { get; protected set; } = Guid.NewGuid();
 

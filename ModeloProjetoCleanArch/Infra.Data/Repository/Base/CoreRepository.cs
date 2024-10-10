@@ -1,19 +1,18 @@
-﻿using Domain.InterfaceRepository;
-using Domain.Model;
+﻿using Domain.InterfaceRepository.Base;
+using Domain.Model.Base;
 using Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Infra.Data.Repository.Base;
 
-public abstract class BasePrincipalRepository<T> : 
-                        IBasePrincipalRepository<T> where T : BasePrincipal
+public abstract class CoreRepository<T> : ICoreRepository<T> where T : Core
 {
 
     protected readonly MeuContext _context;
     protected readonly DbSet<T> _dbSet;
 
-    protected BasePrincipalRepository(MeuContext context)
+    protected CoreRepository(MeuContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();
@@ -35,6 +34,5 @@ public abstract class BasePrincipalRepository<T> :
 
         return Task.FromResult(query);
     }
-
 
 }

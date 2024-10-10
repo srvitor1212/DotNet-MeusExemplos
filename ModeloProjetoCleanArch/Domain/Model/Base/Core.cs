@@ -1,6 +1,6 @@
-﻿namespace Domain.Model;
+﻿namespace Domain.Model.Base;
 
-public abstract class BasePrincipal
+public abstract class Core
 {
     public DateTimeOffset DataCriacao { get; set; } = DateTimeOffset.Now;
     public DateTimeOffset? DataAtualizacao { get; set; }

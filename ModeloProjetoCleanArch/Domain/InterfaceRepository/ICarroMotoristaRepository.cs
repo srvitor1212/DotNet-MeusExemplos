@@ -1,5 +1,8 @@
-﻿namespace Domain.InterfaceRepository;
+﻿using Domain.InterfaceRepository.Base;
+using Domain.Model.MuitosPraMuitos;
 
-public interface ICarroMotoristaRepository : IBasePrincipalRepository
+namespace Domain.InterfaceRepository;
+
+public interface ICarroMotoristaRepository : ICoreRepository<CarroMotorista>
 {
 }

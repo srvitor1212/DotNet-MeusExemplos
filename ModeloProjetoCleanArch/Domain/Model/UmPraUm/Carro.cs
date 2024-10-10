@@ -1,4 +1,5 @@
-﻿using Domain.Model.MuitosPraMuitos;
+﻿using Domain.Model.Base;
+using Domain.Model.MuitosPraMuitos;
 using Domain.Model.UmPraMuitos;
 
 namespace Domain.Model.UmPraUm;
