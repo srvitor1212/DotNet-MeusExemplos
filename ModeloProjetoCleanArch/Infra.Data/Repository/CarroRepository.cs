@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace Infra.Data.Repository;
 
-public class CarroRepository : BaseRepository<Carro>, ICarroRepository
+public class CarroRepository : BaseModelRepository<Carro>, ICarroRepository
 {
     public CarroRepository(MeuContext context) : base(context)
     {

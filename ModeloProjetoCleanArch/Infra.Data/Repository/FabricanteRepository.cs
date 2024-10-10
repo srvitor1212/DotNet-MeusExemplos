@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace Infra.Data.Repository;
 
-public class FabricanteRepository : BaseRepository<Fabricante>, IFabricanteRepository
+public class FabricanteRepository : BaseModelRepository<Fabricante>, IFabricanteRepository
 {
     public FabricanteRepository(MeuContext context) : base(context)
     {

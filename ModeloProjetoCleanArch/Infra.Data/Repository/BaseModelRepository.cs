@@ -6,12 +6,12 @@ using System.Linq.Expressions;
 
 namespace Infra.Data.Repository;
 
-public class BaseRepository<T> : IBaseModelRepository<T> where T : BaseModel
+public class BaseModelRepository<T> : IBaseModelRepository<T> where T : BaseModel
 {
     protected readonly MeuContext _context;
     protected readonly DbSet<T> _dbSet;
 
-    public BaseRepository(MeuContext context)
+    public BaseModelRepository(MeuContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();
