@@ -3,7 +3,6 @@ using Application.Message;
 using Application.Payloads;
 using Application.Payloads.Records;
 using Domain.InterfaceRepository;
-using Domain.Model.MuitosPraMuitos;
 
 namespace Application.Services;
 
