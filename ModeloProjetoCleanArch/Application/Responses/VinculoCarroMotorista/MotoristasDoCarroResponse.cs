@@ -2,7 +2,7 @@
 
 public class MotoristasDoCarroResponse : ICarroMotoristaResponse
 {
-    public string Motorista { get; set; } = string.Empty;
+    public Guid Motorista { get; set; } = Guid.Empty;
 
-    public List<string> Carros { get; set; } = new List<string>();
+    public List<Guid> Carros { get; set; } = [];
 }

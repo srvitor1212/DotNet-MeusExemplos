@@ -4,7 +4,7 @@ namespace Application.Responses;
 
 public class CarrosDoMotoristaResponse : ICarroMotoristaResponse
 {
-    public string Carros { get; set; } = string.Empty;
+    public Guid Carros { get; set; } = Guid.Empty;
 
-    public List<string> Motoristas { get; set; } = new List<string>();
+    public List<Guid> Motoristas { get; set; } = [];
 }
