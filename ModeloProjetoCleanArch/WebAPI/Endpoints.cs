@@ -1,5 +1,6 @@
 ﻿using Application.Payloads;
 using Application.Services;
+using Domain.Enum;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI;
@@ -58,7 +59,7 @@ public static class Endpoints
 
         app.MapPost("associar-motorista-ao-carro",
             async ([FromBody] MotoristasCarrosPayload payload,
-            [FromServices] AddMotoristaCarroService service) =>
+                   [FromServices] AddMotoristaCarroService service) =>
             {
                 var result = await service.Processar(payload);
 
@@ -76,7 +77,14 @@ public static class Endpoints
                 return await service.Consultar();
             }).WithTags("MuitosPraMuitos");
 
-        //todo: criar um endpoint pra mostrar carro e os motoristas vinculados
+
+        app.MapGet("listar-vinculos",
+            async ([FromQuery] OpcaoFiltroCarroMotorista payload,
+                   [FromServices] ListarVinculosCarroMotoristaService service) =>
+            {
+                return await service.Consultar(payload);
+            }).WithTags("MuitosPraMuitos");
+
 
         #endregion
     }

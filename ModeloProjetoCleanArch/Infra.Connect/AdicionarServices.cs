@@ -14,6 +14,7 @@ public static class AdicionarServices
         services.AddScoped<AddMotoristaCarroService>();
         services.AddScoped<AddMotoristaCarroService>();
         services.AddScoped<RandomMotoristaCarroService>();
+        services.AddScoped<ListarVinculosCarroMotoristaService>();
 
         return services;
     }
