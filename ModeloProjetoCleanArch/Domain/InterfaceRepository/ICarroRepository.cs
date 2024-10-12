@@ -6,5 +6,7 @@ namespace Domain.InterfaceRepository;
 
 public interface ICarroRepository : IBaseModelRepository<Carro>
 {
-    Task<IQueryable<Carro>> GetCarrosWithIncludes(Expression<Func<Carro, bool>>? predicate = null);
+    Task<IQueryable<Carro>> GetCarrosWithChassi(Expression<Func<Carro, bool>>? predicate = null);
+
+    Task<List<Carro>> GetCarrosWithMotoristas();
 }

@@ -1,6 +1,6 @@
 ﻿namespace Application.Responses.VinculoCarroMotorista;
 
-public class MotoristasDoCarroResponse : ICarroMotoristaResponse
+public class MotoristasECarrosResponse : ICarroMotoristaResponse
 {
     public Guid Motorista { get; set; } = Guid.Empty;
 

@@ -14,4 +14,11 @@ public static class CarroAdapter
 
     public static CarrosRecordResponse ToCarros(this Carro model)
         => new CarrosRecordResponse(model.Id, model.Modelo);
+
+    public static CarrosEMotoristasResponse ToCarrosEMotoristasResponse(this Carro model)
+    {
+        var x = model.CarroMotorista.Select(x => new MotoristasRecordResponse() ); //todo
+
+        return new CarrosEMotoristasResponse() { Modelo = model.Modelo, Motoristas =  };
+    }
 }

@@ -9,38 +9,27 @@ namespace Application.Services;
 public class ListarVinculosCarroMotoristaService : IConsulta<OpcaoFiltroCarroMotorista, IEnumerable<ICarroMotoristaResponse>>
 {
 
-    private readonly ICarroMotoristaRepository _carroMotoristaRepository;
+    private readonly ICarroRepository _carroRepository;
 
-    public ListarVinculosCarroMotoristaService(ICarroMotoristaRepository carroMotoristaRepository)
+    public ListarVinculosCarroMotoristaService(ICarroRepository carroRepository)
     {
-        _carroMotoristaRepository = carroMotoristaRepository;
+        _carroRepository = carroRepository;
     }
 
     public async Task<IEnumerable<ICarroMotoristaResponse>> Consultar(OpcaoFiltroCarroMotorista payload)
     {
-        var vinculos = await _carroMotoristaRepository.GetQueryable();
-
-        if (vinculos == null)
-            return RetornarVazio(payload);
 
         if (payload == OpcaoFiltroCarroMotorista.Carro)
         {
-            var vinculosPorCarro = vinculos.GroupBy(x => x.CarroId)
-                                           .Select(c => new CarrosDoMotoristaResponse 
-                                           { 
-                                               Carros = c.Key,
-                                               Motoristas = c.Select(m => m.MotoristaId).ToList()
-                                           }).Cast<ICarroMotoristaResponse>().ToList(); //todo com erro
-
-            return await Task.FromResult(vinculosPorCarro);
+            var carros = await _carroRepository.GetCarrosWithMotoristas();
         }
+            
 
-        
-        
-        
-        
-        
-        
+
+
+
+
+
         return RetornarVazio(payload);
     }
 

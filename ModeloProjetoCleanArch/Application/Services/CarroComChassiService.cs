@@ -17,7 +17,7 @@ public class CarroComChassiService : IConsulta<CarrosPayload, IEnumerable<CarroC
 
     public async Task<IEnumerable<CarroChassiResponse>> Consultar(CarrosPayload payload)
     {
-        var carros = await _carroRepository.GetCarrosWithIncludes(x => x.DataCriacao >= payload.dataCadastroInicial &&
+        var carros = await _carroRepository.GetCarrosWithChassi(x => x.DataCriacao >= payload.dataCadastroInicial &&
                                                                  x.DataCriacao <= payload.dataCadastroFinal);
 
         var result = carros.Select(CarroAdapter.ToResponseCarroChassi).ToList();

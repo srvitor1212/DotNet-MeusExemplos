@@ -13,7 +13,7 @@ public class CarroRepository : BaseModelRepository<Carro>, ICarroRepository
     {
     }
 
-    public Task<IQueryable<Carro>> GetCarrosWithIncludes(Expression<Func<Carro, bool>>? predicate = null)
+    public Task<IQueryable<Carro>> GetCarrosWithChassi(Expression<Func<Carro, bool>>? predicate = null)
     {
         var query = _dbSet.Include(x => x.Chassi)
                           .AsNoTracking()
@@ -24,5 +24,14 @@ public class CarroRepository : BaseModelRepository<Carro>, ICarroRepository
             query = query.Where(predicate);
 
         return Task.FromResult(query);
+    }
+
+    public Task<List<Carro>> GetCarrosWithMotoristas()
+    {
+        var query = _dbSet.Include(x => x.CarroMotorista)
+                            .ThenInclude(cm => cm.Motorista)
+                          .ToListAsync();
+
+        return query;
     }
 }
