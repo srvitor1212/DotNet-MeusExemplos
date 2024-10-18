@@ -1,4 +1,4 @@
-﻿namespace CalculoHoras;
+﻿namespace CalculoHoras.app;
 public static class Saldo
 {
     public static TimeSpan Calcular(DateTime horaTrabalhada, DateTime cargaHoraria)
