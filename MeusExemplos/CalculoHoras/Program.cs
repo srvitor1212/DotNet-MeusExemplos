@@ -3,9 +3,17 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
 
-var path = "..\\..\\..\\importar.csv";
+var path = "..\\..\\..\\dados\\importar.csv";
 
 var registro = new Record();
+
+var cargaHorariaSemanal = new DateTime(1, 1, 1, 8, 30, 0);
+var cargaHorariaSabado = new DateTime(1, 1, 1, 4, 0, 0);
+
+Console.WriteLine($"\n\n" +
+    $"Carga horária semanal.: {cargaHorariaSemanal.Hour}:{cargaHorariaSemanal.Minute}\n" +
+    $"Carga horária sábado..: {cargaHorariaSabado.Hour}:{cargaHorariaSabado.Minute}");
+
 
 var config = new CsvConfiguration(CultureInfo.InvariantCulture)
 {
@@ -48,7 +56,8 @@ foreach (var func in funcionarios)
         var entradaSaida = 0;
         var entrada = DateTime.MinValue;
         var saida = DateTime.MinValue;
-        var saldo = DateTime.MinValue;
+        var horaTrabalhada = DateTime.MinValue;
+        var saldo = TimeSpan.MinValue;
 
         foreach (var batida in dia)
         {
@@ -66,14 +75,23 @@ foreach (var func in funcionarios)
             }
 
             if (entrada != DateTime.MinValue && saida != DateTime.MinValue)
-                saldo = saldo + (saida - entrada);
+                horaTrabalhada = horaTrabalhada + (saida - entrada);
         }
 
-        saldoDia.Add(new SaldoPorDia(dia.Key, saldo));
+        if (dia.Key.DayOfWeek == DayOfWeek.Saturday) //sábado
+        {
+            saldo = Saldo.Calcular(horaTrabalhada, cargaHorariaSabado);
+        } else
+        {
+            saldo = Saldo.Calcular(horaTrabalhada, cargaHorariaSemanal);
+        }
+
+        saldoDia.Add(new SaldoPorDia(dia.Key, horaTrabalhada, saldo));
 
         Console.WriteLine(
             $"Dia {dia.Key.Date.Day}/{dia.Key.Date.Month}/{dia.Key.Date.Year} {DiaDaSemana.Get(dia.Key)} " +
-            $", horas trabalhadas {saldo.Hour}:{saldo.Minute}");
+            $", horas trabalhadas {horaTrabalhada.Hour}:{horaTrabalhada.Minute}" +
+            $", saldo {saldo.Hours}:{saldo.Minutes}");
     }
 
 }
@@ -81,4 +99,4 @@ foreach (var func in funcionarios)
 
 Console.ReadKey();
 
-public record SaldoPorDia(DateTime Data, DateTime Saldo);
+public record SaldoPorDia(DateTime Data, DateTime HoraTrabalhada, TimeSpan Saldo);

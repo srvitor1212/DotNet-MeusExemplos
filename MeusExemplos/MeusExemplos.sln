@@ -65,12 +65,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID", "SOLID\SOLID.csproj", "{B87156D9-927F-43B9-B35F-26399EFA8EAA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CalculoHoras", "CalculoHoras", "{B4B1ABBC-A10C-4F81-B279-503F1DF1CD17}"
-	ProjectSection(SolutionItems) = preProject
-		CalculoHoras\dados_transformados.xlsx = CalculoHoras\dados_transformados.xlsx
-		CalculoHoras\importar.csv = CalculoHoras\importar.csv
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoHoras", "CalculoHoras\CalculoHoras.csproj", "{836F74C4-4D57-4C75-8EBF-E9B7DFF5F9B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoHoras", "CalculoHoras\CalculoHoras.csproj", "{836F74C4-4D57-4C75-8EBF-E9B7DFF5F9B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
