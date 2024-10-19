@@ -1,4 +1,9 @@
-﻿namespace CalculoHoras.app;
+﻿using CalculoHoras.App.Auxiliar;
+using CalculoHoras.App.DTO;
+using CalculoHoras.App.Enum;
+using CalculoHoras.Application.DTO;
+
+namespace CalculoHoras.Application.Processamento;
 
 public class CalculoDeHoras
 {
@@ -68,7 +73,7 @@ public class CalculoDeHoras
     private DateTime CalcularHorasDia(IGrouping<DateTime, Marcacao> dia)
     {
 
-        var entradaSaida = TipoRegistro.Entrada;
+        var entradaSaida = TipoRegistroEnum.Entrada;
         var entrada = DateTime.MinValue;
         var saida = DateTime.MinValue;
 
@@ -76,14 +81,14 @@ public class CalculoDeHoras
 
         foreach (var batida in dia)
         {
-            if (entradaSaida == TipoRegistro.Entrada)
+            if (entradaSaida == TipoRegistroEnum.Entrada)
             {
                 entrada = batida.Batida;
                 entradaSaida = Alternar(entradaSaida);
                 continue;
             }
 
-            if (entradaSaida == TipoRegistro.Saida)
+            if (entradaSaida == TipoRegistroEnum.Saida)
             {
                 saida = batida.Batida;
                 entradaSaida = Alternar(entradaSaida);
@@ -97,19 +102,9 @@ public class CalculoDeHoras
     }
 
 
-    private static TipoRegistro Alternar(TipoRegistro tipoRegistro)
-        => tipoRegistro == TipoRegistro.Entrada
-            ? TipoRegistro.Saida
-            : TipoRegistro.Entrada;
-}
-
-public record SaldoPorDia(DateTime Data, DateTime HoraTrabalhada, TimeSpan Saldo);
-
-public record Resultado(int Id, string Nome, List<SaldoPorDia> SaldoPorDias);
-
-public enum TipoRegistro
-{
-    Entrada = 0,
-    Saida = 1
+    private static TipoRegistroEnum Alternar(TipoRegistroEnum tipoRegistro)
+        => tipoRegistro == TipoRegistroEnum.Entrada
+            ? TipoRegistroEnum.Saida
+            : TipoRegistroEnum.Entrada;
 }
 

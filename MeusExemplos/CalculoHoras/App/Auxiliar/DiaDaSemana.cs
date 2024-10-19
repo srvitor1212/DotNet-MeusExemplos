@@ -1,4 +1,4 @@
-﻿namespace CalculoHoras.app;
+﻿namespace CalculoHoras.App.Auxiliar;
 
 public static class DiaDaSemana
 {

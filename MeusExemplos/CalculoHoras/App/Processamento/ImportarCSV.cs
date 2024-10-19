@@ -1,8 +1,10 @@
 ﻿using CsvHelper.Configuration;
 using CsvHelper;
 using System.Globalization;
+using CalculoHoras.Application.DTO;
+using CalculoHoras.App.DTO;
 
-namespace CalculoHoras.app;
+namespace CalculoHoras.Application.Processamento;
 
 public class ImportarCSV
 {
@@ -44,10 +46,9 @@ public class ImportarCSV
             }
         }
 
-        batidas.OrderBy(x => x.Id).ThenByDescending(x => x.Batida);
+        batidas.OrderBy(x => x.Id)
+            .ThenByDescending(x => x.Batida);
 
         return batidas;
     }
 }
-
-public record LinhaCsv(int Id, string Nome, string Batida);

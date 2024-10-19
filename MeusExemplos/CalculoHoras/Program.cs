@@ -1,4 +1,4 @@
-﻿using CalculoHoras.app;
+﻿using CalculoHoras.Application.Processamento;
 
 
 var importar = new ImportarCSV(
@@ -30,7 +30,7 @@ foreach (var item in resultado)
 
         if (dia.Saldo < toleranciaFalta)
             saldoTotal += dia.Saldo;
-        else if (dia.Saldo > toleranciaExtra) 
+        else if (dia.Saldo > toleranciaExtra)
             saldoTotal += dia.Saldo;
     }
 
