@@ -64,7 +64,10 @@ public class CalculoDeHoras
                 saldo = Saldo.Calcular(horasNoDia, CargaHoraria);
             }
 
-            result.Add(new SaldoPorDia(dia.Key, horasNoDia, saldo));
+            result.Add(new SaldoPorDia(
+                new DateOnly(dia.Key.Year, dia.Key.Month, dia.Key.Day), 
+                new TimeSpan(horasNoDia.Hour, horasNoDia.Minute, 0), 
+                saldo));
         }
 
         return result;

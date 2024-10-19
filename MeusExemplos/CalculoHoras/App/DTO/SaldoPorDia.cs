@@ -1,6 +1,6 @@
 ﻿namespace CalculoHoras.App.DTO;
 
 public record SaldoPorDia(
-    DateTime Data, 
-    DateTime HoraTrabalhada, 
+    DateOnly Data, 
+    TimeSpan HoraTrabalhada, 
     TimeSpan Saldo);
