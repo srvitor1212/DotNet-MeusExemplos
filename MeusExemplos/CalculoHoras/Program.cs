@@ -4,7 +4,7 @@ using CalculoHoras.Application.Processamento;
 
 
 var importar = new ImportarCSV(
-    "..\\..\\..\\dados",
+    @"..\..\..\dados",
     "importar.csv");
 
 
