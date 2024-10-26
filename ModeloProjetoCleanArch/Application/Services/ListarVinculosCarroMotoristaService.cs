@@ -1,12 +1,11 @@
 ﻿using Application.Abstraction;
+using Application.Adapter;
 using Application.Responses;
-using Application.Responses.VinculoCarroMotorista;
-using Domain.Enum;
 using Domain.InterfaceRepository;
 
 namespace Application.Services;
 
-public class ListarVinculosCarroMotoristaService : IConsulta<OpcaoFiltroCarroMotorista, IEnumerable<ICarroMotoristaResponse>>
+public class ListarVinculosCarroMotoristaService : IConsulta<Guid?, IEnumerable<CarrosDoMotoristaResponse>>
 {
 
     private readonly ICarroMotoristaRepository _carroMotoristaRepository;
@@ -16,37 +15,18 @@ public class ListarVinculosCarroMotoristaService : IConsulta<OpcaoFiltroCarroMot
         _carroMotoristaRepository = carroMotoristaRepository;
     }
 
-    public async Task<IEnumerable<ICarroMotoristaResponse>> Consultar(OpcaoFiltroCarroMotorista payload)
+    public async Task<IEnumerable<CarrosDoMotoristaResponse>> Consultar(Guid? MotoristaId)
     {
-        var vinculos = await _carroMotoristaRepository.GetQueryable();
+        var vinculos = await _carroMotoristaRepository.GetQueryableWithIncludes(x
+            => MotoristaId == null
+                || MotoristaId == Guid.Empty
+                || MotoristaId == x.MotoristaId);
 
         if (vinculos == null)
-            return RetornarVazio(payload);
+            return new List<CarrosDoMotoristaResponse>();
 
-        if (payload == OpcaoFiltroCarroMotorista.Carro)
-        {
-            var vinculosPorCarro = vinculos.GroupBy(x => x.CarroId)
-                                           .Select(c => new CarrosDoMotoristaResponse 
-                                           { 
-                                               Carros = c.Key,
-                                               Motoristas = c.Select(m => m.MotoristaId).ToList()
-                                           }).Cast<ICarroMotoristaResponse>().ToList(); //todo com erro
+        var result = CarroMotoristaAdapter.ToCarrosDoMotoristaResponse(vinculos);
 
-            return await Task.FromResult(vinculosPorCarro);
-        }
-
-        
-        
-        
-        
-        
-        
-        return RetornarVazio(payload);
+        return result;
     }
-
-    private static IEnumerable<ICarroMotoristaResponse> RetornarVazio(OpcaoFiltroCarroMotorista op)
-        => op == OpcaoFiltroCarroMotorista.Motorista
-                 ? new List<MotoristasDoCarroResponse>()
-                 : new List<CarrosDoMotoristaResponse>();
-
 }

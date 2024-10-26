@@ -79,10 +79,10 @@ public static class Endpoints
 
 
         app.MapGet("listar-vinculos",
-            async ([FromQuery] OpcaoFiltroCarroMotorista payload,
+            async ([FromQuery] Guid? MotoristaId,
                    [FromServices] ListarVinculosCarroMotoristaService service) =>
             {
-                return await service.Consultar(payload);
+                return await service.Consultar(MotoristaId);
             }).WithTags("MuitosPraMuitos");
 
 
