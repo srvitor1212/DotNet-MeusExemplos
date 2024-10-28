@@ -19,6 +19,9 @@ public class VerificarDateTime
         DataHora = value;
     }
 
+    public void SetUniversalTime(DateTimeOffset value) =>
+        DataHora = value.ToUniversalTime();
+
     private bool IsDateTimeOffsetUtcNow(DateTimeOffset value) 
         => value.Offset == TimeSpan.Zero;
 
