@@ -20,7 +20,7 @@ namespace DateTime_Ex
             CultureInfo cultureInfo = new CultureInfo("pt-BR");
             if (DateTime.TryParse(value, cultureInfo, out var result))
             {
-                Console.WriteLine(">>não foi possível converter");
+                Console.WriteLine(">>convertido com sucesso");
                 return result;
             }
 

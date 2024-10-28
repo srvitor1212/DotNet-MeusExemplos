@@ -10,19 +10,14 @@ class Program
     static void Main(string[] args)
     {
 
-        Console.WriteLine(nameof(Teste));
 
-        var rand = new Random();
+        var nome = "ReportPaymentParameterVBZ6Detail/NovaRVNominal_ago2024_19082024_02341276.csv";
 
-        for (int i = 0; i < 100; i++)
-        {
-            Console.Write( rand.Next(minValue:0, maxValue: 2) );
-        }
+        var teste = nome.Split('/')[1];
+        var teste2 = nome.Split('/');
+
+        Console.WriteLine(teste);
+
+
     }
 }
-
-public class Teste()
-{
-
-}
-
