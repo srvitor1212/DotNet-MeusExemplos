@@ -20,3 +20,14 @@ Console.WriteLine($" ...........DateTime.Now: {DateTime.Now}");
 Console.WriteLine($" ........DateTime.UtcNow: {DateTime.UtcNow}");
 Console.WriteLine($" .....DateTimeOffset.Now: {DateTimeOffset.Now}");
 Console.WriteLine($" ..DateTimeOffset.UtcNow: {DateTimeOffset.UtcNow}");
+
+
+Console.WriteLine("\n==== Testar data =========================");
+
+var verificarDataHora = new VerificarDateTime();
+Console.WriteLine($"ao instânciar.....: {verificarDataHora.DataHora}");
+
+verificarDataHora.SetDataHora(DateTime.Now);
+Console.WriteLine($"ao passar errado..: {verificarDataHora.DataHora}");
+
+
