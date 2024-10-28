@@ -16,7 +16,7 @@ Console.WriteLine("str4 = " + convert.StringToDatetime(str4) + "\n");
 
 Console.WriteLine("======================================");
 
-Console.WriteLine(DateTime.Now);
-Console.WriteLine(DateTime.UtcNow);
-Console.WriteLine(DateTimeOffset.Now);
-Console.WriteLine(DateTimeOffset.UtcNow);
+Console.WriteLine($" ...........DateTime.Now: {DateTime.Now}");
+Console.WriteLine($" ........DateTime.UtcNow: {DateTime.UtcNow}");
+Console.WriteLine($" .....DateTimeOffset.Now: {DateTimeOffset.Now}");
+Console.WriteLine($" ..DateTimeOffset.UtcNow: {DateTimeOffset.UtcNow}");
