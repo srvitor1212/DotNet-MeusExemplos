@@ -3,12 +3,21 @@ using CalculoHoras.App.Processamento;
 using CalculoHoras.Application.Processamento;
 
 
-var importar = new ImportarCSV(
+var arquivoOriginal = new ImportarArquivoTexto(
+    @"..\..\..\dados\dados",
+    "Registro de atendimento(Funcionário-1).txt",
+    "ID\tNome\tDepart.\tTempo\tNúmero da máquina\t");
+
+
+arquivoOriginal.ImportarArquivo();
+
+
+var arquivoCsv = new ImportarCSV(
     @"..\..\..\dados",
     "importar.csv");
 
 
-var marcacoes = importar.GetMarcacoes();
+var marcacoes = arquivoCsv.GetMarcacoes();
 
 
 var calculo = new CalculoDeHoras(

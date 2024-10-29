@@ -1,23 +1,17 @@
-﻿using CsvHelper.Configuration;
-using CsvHelper;
-using System.Globalization;
+﻿using CalculoHoras.App.DTO;
+using CalculoHoras.App.Processamento;
 using CalculoHoras.Application.DTO;
-using CalculoHoras.App.DTO;
+using CsvHelper;
+using CsvHelper.Configuration;
+using System.Globalization;
 
 namespace CalculoHoras.Application.Processamento;
 
-public class ImportarCSV
+public class ImportarCSV : Importar
 {
-    public string Path { get; private set; } = string.Empty;
-    public string Arquivo { get; private set; } = string.Empty;
-    public string FullPath { get; private set; }
 
-    public ImportarCSV(string path, string arquivo)
-    {
-        Path = path;
-        Arquivo = arquivo;
-        FullPath = $"{Path}\\{Arquivo}";
-    }
+    public ImportarCSV(string path, string arquivo) 
+        : base(path, arquivo) { }
 
     public List<Marcacao> GetMarcacoes()
     {
