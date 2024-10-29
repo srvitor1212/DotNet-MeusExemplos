@@ -1,4 +1,4 @@
-﻿namespace CalculoHoras.App.Processamento;
+﻿namespace CalculoHoras.App.Processamento.Abstract;
 
 public abstract class Importar
 {

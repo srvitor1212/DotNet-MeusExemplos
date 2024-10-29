@@ -1,4 +1,5 @@
 ﻿using CalculoHoras.App.DTO;
+using CalculoHoras.App.Processamento.Abstract;
 using CalculoHoras.Application.DTO;
 
 namespace CalculoHoras.App.Processamento;
