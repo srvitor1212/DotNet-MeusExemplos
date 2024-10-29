@@ -9,6 +9,6 @@ public static class Saldo
 
         var result = trabalhado - carga;
 
-        return trabalhado - carga;
+        return result;
     }
 }

@@ -1,9 +1,10 @@
-﻿namespace CalculoHoras.App.Processamento;
+﻿using CalculoHoras.App.DTO;
+using CalculoHoras.Application.DTO;
+
+namespace CalculoHoras.App.Processamento;
 
 public class ImportarArquivoTexto : Importar
 {
-
-    public string ArquivoCsv { get; private set; } = string.Empty;
     public string LayoutCabecalho { get; private set; } = string.Empty;
 
     public ImportarArquivoTexto(
@@ -14,13 +15,42 @@ public class ImportarArquivoTexto : Importar
     }
 
 
-    public string ImportarArquivo()
+
+    public List<Marcacao> GetMarcacoes()
+    {
+        var linhas = ImportarArquivo();
+
+        var result = linhas.Select(x 
+            => new Marcacao(x.codigo, x.nome, x.batida)
+            ).ToList();
+
+        return result;
+    }
+
+
+
+    private List<LinhaArquivoTexto> ImportarArquivo()
     {
         if (!FileIsOk())
-            throw new FileLoadException("Erro ao processar arquivo!");
+            return new List<LinhaArquivoTexto>();
 
+        var result = new List<LinhaArquivoTexto>();
 
-        throw new NotImplementedException();
+        var arquivo = File.ReadAllLines(FullPath);
+
+        foreach (var linha in arquivo)
+        {
+            if (linha == LayoutCabecalho)
+                continue;
+
+            var colunasArquivoOriginal = linha.Split('\t');
+
+            var colunas = ConverterColunas(colunasArquivoOriginal);
+
+            result.Add(colunas);
+        }
+
+        return result;
     }
 
     private bool FileIsOk()
@@ -46,5 +76,20 @@ public class ImportarArquivoTexto : Importar
         }
 
         return true;
+    }
+
+    private LinhaArquivoTexto ConverterColunas(string[] colunas)
+    {
+        var code = Convert.ToInt32(colunas[0]);
+
+        var nome = Convert.ToString(colunas[1]);
+
+        var departamento = Convert.ToString(colunas[2]);
+
+        var batida = Convert.ToDateTime(colunas[3]);
+
+        var maquina = Convert.ToInt32(colunas[4]);
+
+        return new LinhaArquivoTexto(code, nome, departamento, batida, maquina);
     }
 }
