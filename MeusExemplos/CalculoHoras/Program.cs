@@ -20,8 +20,8 @@ foreach (var arquivo in arquivos)
 
 var calculo = new CalculoDeHoras(
     marcacoes,
-    new TimeSpan(0, 8, 30, 0),
-    new TimeSpan(0, 4, 0, 0));
+    cargaHoraria: new TimeSpan(0, 8, 30, 0),
+    cargaHorariaSabado: new TimeSpan(0, 4, 0, 0));
 
 var resultado = calculo.Calcular();
 
