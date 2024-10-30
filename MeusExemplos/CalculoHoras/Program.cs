@@ -2,8 +2,10 @@
 using CalculoHoras.Application.Processamento;
 
 
+var ambiente = new ConfiguracaoAmbiente();
+
 var importar = new ImportarArquivoTexto(
-    @"..\..\..\dados",
+    ambiente.PathImportar,
     "Registro de atendimento(Funcionário-1).txt",
     "ID\tNome\tDepart.\tTempo\tNúmero da máquina\t");
 
