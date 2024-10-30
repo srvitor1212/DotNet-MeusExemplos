@@ -1,4 +1,5 @@
 ﻿using CalculoHoras.App.Processamento;
+using CalculoHoras.Application.DTO;
 using CalculoHoras.Application.Processamento;
 
 
@@ -6,10 +7,16 @@ var ambiente = new ConfiguracaoAmbiente();
 
 var importar = new ImportarArquivoTexto(
     ambiente.PathImportar,
-    "Registro de atendimento(Funcionário-1).txt",
     "ID\tNome\tDepart.\tTempo\tNúmero da máquina\t");
 
-var marcacoes = importar.GetMarcacoes();
+var arquivos = BuscarArquivos.GetArquivosImportar();
+
+var marcacoes = new List<Marcacao>();
+
+foreach (var arquivo in arquivos)
+{
+    marcacoes.AddRange(importar.GetMarcacoes(arquivo));
+}
 
 var calculo = new CalculoDeHoras(
     marcacoes,
