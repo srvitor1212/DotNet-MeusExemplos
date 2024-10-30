@@ -9,7 +9,7 @@ var importar = new ImportarArquivoTexto(
     ambiente.PathImportar,
     "ID\tNome\tDepart.\tTempo\tNúmero da máquina\t");
 
-var arquivos = BuscarArquivos.GetArquivosImportar();
+var arquivos = BuscarArquivos.GetArquivosParaImportar();
 
 var marcacoes = new List<Marcacao>();
 

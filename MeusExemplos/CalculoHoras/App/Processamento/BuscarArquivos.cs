@@ -2,7 +2,7 @@
 
 public static class BuscarArquivos
 {
-    public static List<string> GetArquivosImportar()
+    public static List<string> GetArquivosParaImportar()
     {
         return new List<string>()
         {
