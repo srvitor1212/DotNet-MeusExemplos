@@ -6,3 +6,5 @@ Bin/
 obj/
 Obj/
 /MeusExemplos/ExemploModelagemBD/DataBaseSQLIte*
+**/PublishProfiles
+**csproj.user
