@@ -9,13 +9,13 @@ public class CalculoDeHoras
 {
     public List<Marcacao> Marcacoes { get; private set; } = new List<Marcacao>();
 
-    public DateTime CargaHoraria { get; private set; }
+    public TimeSpan CargaHoraria { get; private set; }
 
-    public DateTime CargaHorariaSabado { get; private set; }
+    public TimeSpan CargaHorariaSabado { get; private set; }
 
 
 
-    public CalculoDeHoras(List<Marcacao> marcacoes, DateTime cargaHoraria, DateTime cargaHorariaSabado)
+    public CalculoDeHoras(List<Marcacao> marcacoes, TimeSpan cargaHoraria, TimeSpan cargaHorariaSabado)
     {
         Marcacoes = marcacoes;
         CargaHoraria = cargaHoraria;
@@ -66,21 +66,21 @@ public class CalculoDeHoras
 
             result.Add(new SaldoPorDia(
                 new DateOnly(dia.Key.Year, dia.Key.Month, dia.Key.Day), 
-                new TimeSpan(horasNoDia.Hour, horasNoDia.Minute, 0), 
+                new TimeSpan(horasNoDia.Hours, horasNoDia.Minutes, 0), 
                 saldo));
         }
 
         return result;
     }
 
-    private DateTime CalcularHorasDia(IGrouping<DateTime, Marcacao> dia)
+    private TimeSpan CalcularHorasDia(IGrouping<DateTime, Marcacao> dia)
     {
 
         var entradaSaida = TipoRegistroEnum.Entrada;
         var entrada = DateTime.MinValue;
         var saida = DateTime.MinValue;
 
-        var horaTrabalhada = DateTime.MinValue;
+        var horaTrabalhada = TimeSpan.Zero;
 
         foreach (var batida in dia)
         {
