@@ -1,15 +1,45 @@
-﻿namespace CalculoHoras.App.Processamento;
+﻿using System.Text.RegularExpressions;
 
-public static class BuscarArquivos
+namespace CalculoHoras.App.Processamento;
+
+public class BuscarArquivos
 {
-    public static List<string> GetArquivosParaImportar()
+    public List<string> Arquivos { get; set; } = new List<string>();
+
+    private readonly string LabelPadrao = @"Registro de atendimento\(Funcionário-\d+\)\.txt";
+
+    private readonly ConfiguracaoAmbiente _configuracaoAmbiente;
+
+    public BuscarArquivos(ConfiguracaoAmbiente configuracaoAmbiente)
     {
-        return new List<string>()
+        _configuracaoAmbiente = configuracaoAmbiente;
+
+        GetArquivosParaImportar();
+    }
+
+
+
+    private void GetArquivosParaImportar()
+    {
+        var arquivosNaPasta = Directory.GetFiles(_configuracaoAmbiente.PathImportar);
+
+        Arquivos = GetLabelDosArquivosParaImportar(arquivosNaPasta);
+    }
+
+    private List<string> GetLabelDosArquivosParaImportar(string[] arquivos)
+    {
+        var arquivosImportar = new List<string>();
+
+        foreach (var arq in arquivos)
         {
-            "Registro de atendimento(Funcionário-1).txt",
-            "Registro de atendimento(Funcionário-2).txt",
-            "Registro de atendimento(Funcionário-3).txt",
-            "Registro de atendimento(Funcionário-4).txt",
-        };
+            var labelArquivo = Path.GetFileName(arq);
+            if (Regex.IsMatch(labelArquivo, LabelPadrao, RegexOptions.IgnoreCase))
+            {
+                arquivosImportar.Add(labelArquivo);
+                Console.WriteLine($"Arquivo localizado: {labelArquivo}");
+            }
+        }
+
+        return arquivosImportar;
     }
 }

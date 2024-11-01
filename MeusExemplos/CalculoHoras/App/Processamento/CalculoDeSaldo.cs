@@ -24,7 +24,7 @@ public class CalculoDeSaldo
 
     public void ImprimirSaldoConsole()
     {
-        Console.WriteLine("Calculo de banco de Horas - Resumido");
+        Console.WriteLine("\n\nCalculo de banco de Horas - Resumido");
 
         foreach (var item in Calculado)
         {

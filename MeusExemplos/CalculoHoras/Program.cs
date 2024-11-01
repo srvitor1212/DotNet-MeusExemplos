@@ -1,19 +1,20 @@
 ﻿using CalculoHoras.App.Processamento;
 using CalculoHoras.Application.DTO;
 using CalculoHoras.Application.Processamento;
+Console.WriteLine($"versão 1.0\n\n");
 
 
 var ambiente = new ConfiguracaoAmbiente();
+
+var arquivos = new BuscarArquivos(ambiente);
 
 var importar = new ImportarArquivoTexto(
     ambiente.PathImportar,
     "ID\tNome\tDepart.\tTempo\tNúmero da máquina\t");
 
-var arquivos = BuscarArquivos.GetArquivosParaImportar();
-
 var marcacoes = new List<Marcacao>();
 
-foreach (var arquivo in arquivos)
+foreach (var arquivo in arquivos.Arquivos)
 {
     marcacoes.AddRange(importar.GetMarcacoes(arquivo));
 }
