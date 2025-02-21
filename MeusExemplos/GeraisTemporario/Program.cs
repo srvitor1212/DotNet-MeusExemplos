@@ -1,9 +1,4 @@
-﻿
-
-using System.ComponentModel;
-
-
-namespace geral;
+﻿namespace geral;
 
 class Program
 {
@@ -29,3 +24,5 @@ class Program
         return 0;
     }
 }
+
+
