@@ -1,13 +1,40 @@
 ﻿
 
-Console.WriteLine(">>> Executando o programa");
 
-foreach(string arg in args)
-    Console.WriteLine($"parâmetro recebido: [{arg}]");
+////>>>>>>>> EXEMPLO 1
+//Console.WriteLine(">>> Executando o programa");
 
-Console.WriteLine(">>> Fim");
+//foreach (string arg in args)
+//    Console.WriteLine($"parâmetro recebido: [{arg}]");
 
-return 99;
+//Console.WriteLine(">>> Fim");
+
+//return 99;
+
+
+
+
+//>>>>>>>> EXEMPLO 2
+namespace MeuNameSpace;
+class Program
+{
+    public static async Task<int> Main(string[] args)
+    {
+        Console.WriteLine(">>> Chamou");
+
+        foreach (string arg in args)
+            Console.WriteLine($"parâmetro recebido: [{arg}]");
+
+
+        return await AsyncConsoleWork();
+    }
+
+    private static async Task<int> AsyncConsoleWork()
+    {
+        return 22;
+    }
+}
+
 
 /*
 
