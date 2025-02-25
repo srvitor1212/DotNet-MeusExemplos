@@ -4,17 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.WriteLine("Inicio");
 
-        //código
+        foreach (var item in args) 
+            Console.WriteLine(item);
 
+        Console.WriteLine("fim");
 
-
-
-
-
-
-
-        Exemplo();
     }
 
     private static int Exemplo()
@@ -24,5 +20,3 @@ class Program
         return 0;
     }
 }
-
-
