@@ -6,7 +6,7 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 app.UseHttpsRedirection();
-app.MapGet("/request", async () =>
+app.MapGet("/request", async Task<string> () =>
 {
     var start = DateTime.Now;
     Console.WriteLine($"new request! {start}");
