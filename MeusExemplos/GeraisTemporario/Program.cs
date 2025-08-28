@@ -4,19 +4,40 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Inicio");
+        var insertIntoUsedRoutes = "INSERT INTO PaymentConferenceSummaryRoute (PaymentConferenceSummariesId,UsedRoutesId)";
 
-        foreach (var item in args) 
-            Console.WriteLine(item);
+        var valuesUsedRoutes = new List<string>();
 
-        Console.WriteLine("fim");
+        for (int i = 0; i < 1578; i++)
+        {
+            valuesUsedRoutes.Add($"('{i + 1}', '{i + 1}')");
+        }
 
+
+        insertIntoUsedRoutes = ConcatHelper(insertIntoUsedRoutes, [.. valuesUsedRoutes]);
+        //insertIntoUsedRoutes = ConcatHelper(insertIntoUsedRoutes, "teste");
+        Console.WriteLine(insertIntoUsedRoutes);
     }
 
-    private static int Exemplo()
+    private static string ConcatHelper(string insertInto, string value)
     {
-        Console.WriteLine("exemplo");
+        return ConcatHelper(insertInto, [value]);
+    }
 
-        return 0;
+    private static string ConcatHelper(string insertInto, IEnumerable<string> values)
+    {
+        if (!values.Any())
+            return string.Empty;
+
+        const int batchSize = 1000;
+
+
+
+        var batchedInserts = values
+            .Select((value, index) => new { value, index })
+            .GroupBy(x => x.index / batchSize)
+            .Select(group => $"{insertInto} VALUES {string.Join(", ", group.Select(g => g.value))};");
+
+        return string.Join(" ", batchedInserts);
     }
 }

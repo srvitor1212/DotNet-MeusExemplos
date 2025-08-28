@@ -66,6 +66,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID", "SOLID\SOLID.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp_ParametrosLinhaDeComand", "ConsoleApp_ParametrosLinhaDeComand\ConsoleApp_ParametrosLinhaDeComand.csproj", "{E48B9804-537B-4E2E-BD76-E8DB18277FA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appRunAsync", "appRunAsync\appRunAsync.csproj", "{57922C15-853B-49E5-933D-1E59254417FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -176,6 +178,10 @@ Global
 		{E48B9804-537B-4E2E-BD76-E8DB18277FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E48B9804-537B-4E2E-BD76-E8DB18277FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E48B9804-537B-4E2E-BD76-E8DB18277FA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57922C15-853B-49E5-933D-1E59254417FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57922C15-853B-49E5-933D-1E59254417FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57922C15-853B-49E5-933D-1E59254417FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57922C15-853B-49E5-933D-1E59254417FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,6 +214,7 @@ Global
 		{65A8FAA5-0B2B-4B38-AC16-D5CCDD2BC91E} = {BBBDB469-2BA4-4020-ACBE-CEA254C07243}
 		{B87156D9-927F-43B9-B35F-26399EFA8EAA} = {65A8FAA5-0B2B-4B38-AC16-D5CCDD2BC91E}
 		{E48B9804-537B-4E2E-BD76-E8DB18277FA5} = {BBBDB469-2BA4-4020-ACBE-CEA254C07243}
+		{57922C15-853B-49E5-933D-1E59254417FE} = {BBBDB469-2BA4-4020-ACBE-CEA254C07243}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2940B7B-53CF-4B90-B6F6-5696D223BF35}
