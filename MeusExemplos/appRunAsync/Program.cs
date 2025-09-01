@@ -10,17 +10,6 @@ app.MapGet("/request", async Task<string> () =>
 {
     var start = DateTime.Now;
     Console.WriteLine($"new request! {start}");
-    Console.WriteLine($"" +
-        $"--- CurrentThread info ---\n" +
-        $"Name..............: {Thread.CurrentThread.Name}\n" +
-        $"ThreadState.......: {Thread.CurrentThread.ThreadState}\n" +
-        $"ManagedThreadId...: {Thread.CurrentThread.ManagedThreadId}\n" +
-        $"Priority..........: {Thread.CurrentThread.Priority}\n" +
-        $"IsAlive...........: {Thread.CurrentThread.IsAlive}\n" +
-        $"IsBackground......: {Thread.CurrentThread.IsBackground}\n");
-
-
-
     var second = 1000;
     /* Na versão assíncrona com Task.Delay, as requisições podem ser processadas
      * de forma mais eficiente, sem bloquear threads do servidor.*/
@@ -30,15 +19,6 @@ app.MapGet("/request", async Task<string> () =>
     Console.WriteLine(message);
     return message;
 });
-
-Console.WriteLine($"" +
-    $"--- CurrentThread info ---\n" +
-    $"Name..............: {Thread.CurrentThread.Name}\n" +
-    $"ThreadState.......: {Thread.CurrentThread.ThreadState}\n" +
-    $"ManagedThreadId...: {Thread.CurrentThread.ManagedThreadId}\n" +
-    $"Priority..........: {Thread.CurrentThread.Priority}\n" +
-    $"IsAlive...........: {Thread.CurrentThread.IsAlive}\n" +
-    $"IsBackground......: {Thread.CurrentThread.IsBackground}\n");
 
 await app.RunAsync();
 

@@ -26,6 +26,7 @@ var cozinheiroJoao = new Thread(() =>
 })
 {
     Name = "Fritar a carne"
+
 };
 
 cozinheiroVitor.Start();
