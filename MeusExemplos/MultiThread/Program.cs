@@ -29,5 +29,8 @@ var cozinheiroJoao = new Thread(() =>
 
 };
 
+Console.WriteLine("Start nas threads");
 cozinheiroVitor.Start();
 cozinheiroJoao.Start();
+Console.WriteLine("Startou as threads");
+

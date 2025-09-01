@@ -9,7 +9,7 @@ public class Tarefa
     public async Task Executar(Guid taskId)
     {
         var t = Thread.CurrentThread;
-        Console.WriteLine($"{DateTime.Now} | {t.Name} | {GetType()} | {taskId} - Iniciou");
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | {taskId} - Iniciou");
 
 
 
@@ -18,6 +18,6 @@ public class Tarefa
 
 
 
-        Console.WriteLine($"{DateTime.Now} | {t.Name} | {GetType()} | {taskId} - Terminou");
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | {taskId} - Terminou");
     }
 }

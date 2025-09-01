@@ -15,7 +15,7 @@ public class SimulaBancoDeDados
 
         var t = Thread.CurrentThread;
 
-        Console.WriteLine($"{DateTime.Now} | {t.Name} | {GetType()} | taskid={taskId} - Terminou");
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | taskid={taskId} - Terminou");
 
         return "RESULTADO DA CONSULTA";
     }

@@ -6,7 +6,7 @@ class Program
     {
         var t = Thread.CurrentThread;
         t.Name = "[Chamador_Na_Main]";
-        Console.WriteLine($"{DateTime.Now} | {t.Name} | Main - Iniciou");
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | Main - Iniciou");
 
 
         var tarefas = new[]
@@ -19,6 +19,6 @@ class Program
         await Task.WhenAll(tarefas);
 
 
-        Console.WriteLine($"{DateTime.Now} | {t.Name} | Main - Terminou");
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | Main - Terminou");
     }
 }
