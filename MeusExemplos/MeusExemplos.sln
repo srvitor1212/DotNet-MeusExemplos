@@ -79,7 +79,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "ConsoleApp2\Tasks.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTasks", "MultiTasks\MultiTasks.csproj", "{AED5CAE1-AACE-432E-A0A9-684591A7DE36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "ConsoleApp3\ConsoleApp3.csproj", "{E985978F-7F02-459D-8A8E-6F80423E3859}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreadAndTasks", "ConsoleApp3\MultiThreadAndTasks.csproj", "{E985978F-7F02-459D-8A8E-6F80423E3859}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
