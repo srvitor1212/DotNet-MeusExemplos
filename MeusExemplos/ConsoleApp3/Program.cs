@@ -17,15 +17,15 @@ class Program
             new Thread(() =>
                 {
                     var tarefa = new Tarefa();
-                    tarefa.Executar(12).GetAwaiter().GetResult();
+                    tarefa.Executar().GetAwaiter().GetResult();
                 })
-            { Name = "thread um" };
+            { Name = "thread um  " };
 
         var threadDois =
             new Thread(() =>
                 {
                     var tarefa = new Tarefa();
-                    tarefa.Executar(2).GetAwaiter().GetResult();
+                    tarefa.Executar().GetAwaiter().GetResult();
                 })
             { Name = "thread dois" };
 
@@ -33,7 +33,7 @@ class Program
             new Thread(() =>
                 {
                     var tarefa = new Tarefa();
-                    tarefa.Executar(4).GetAwaiter().GetResult();
+                    tarefa.Executar().GetAwaiter().GetResult();
                 })
             { Name = "thread tres" };
 
