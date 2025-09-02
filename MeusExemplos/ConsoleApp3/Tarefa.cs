@@ -28,7 +28,6 @@ public class Tarefa
             for (long i = 0; i < 2_000_000_000; i++)
                 rand.Next();
             Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Sub-Tarefa 2 - Terminou");
-
         });
 
         var t3 = Task.Run(() =>
@@ -37,7 +36,6 @@ public class Tarefa
             for (long i = 0; i < 1_000_000_000; i++)
                 rand.Next();
             Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Sub-Tarefa 3 - Terminou");
-
         });
 
         await Task.WhenAll(t1, t2, t3);
