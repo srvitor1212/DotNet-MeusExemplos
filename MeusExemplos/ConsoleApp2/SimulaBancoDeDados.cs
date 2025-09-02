@@ -11,7 +11,15 @@ public class SimulaBancoDeDados
     {
         Seconds = seconds;
 
-        await Task.Delay(Seconds * 1000);
+        var rand = new Random();
+
+        /* Se usar task.delay não ocupa CPU nem cria thread nova.
+         Ele agenda um timer no sistema operacional, e quando o tempo expira, 
+        o runtime volta a executar a continuação (o resto do método async) usando o ThreadPool.*/
+        for (long i = 0; i < 2_000_000_000; i++)
+            rand.Next();
+
+        await Task.Delay(0);
 
         var t = Thread.CurrentThread;
 

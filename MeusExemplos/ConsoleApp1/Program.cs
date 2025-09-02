@@ -29,7 +29,7 @@ novaThread.Start();
 
 while (true)
 {
-    Console.WriteLine($"Estado da thread: {novaThread.ThreadState} | {novaThread.IsAlive}");
+    Console.WriteLine($"Estado da thread: {novaThread.ThreadState} | {novaThread.IsAlive} | {novaThread.IsBackground}");
     Thread.Sleep(500);
 
     if (!novaThread.IsAlive)

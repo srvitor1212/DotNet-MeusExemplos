@@ -25,7 +25,8 @@ var cozinheiroJoao = new Thread(() =>
 
 })
 {
-    Name = "Fritar a carne"
+    Name = "Fritar a carne",
+    //IsBackground = true, // quando todas as tasks foreground terminam, as background são eliminadas
 
 };
 
