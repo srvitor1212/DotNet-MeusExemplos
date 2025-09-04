@@ -9,7 +9,7 @@ class Program
         Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | Main - Iniciou");
 
 
-        /*Dessa forma todas as task rodam na mesma task, sem existir paralelismo*/
+        /*Dessa forma todas as task rodam na mesma thread, sem existir paralelismo*/
         var tarefas = new[]
         {
             new Tarefa { Delay = 8 }.Executar(Guid.NewGuid()),
