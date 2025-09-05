@@ -8,8 +8,8 @@ public class Tarefa
 
     public async Task Executar(Guid taskId)
     {
-        var t = Thread.CurrentThread;
-        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | {taskId} - Iniciou");
+        var id = Guid.NewGuid();
+        Log.Write(id, "Tarefa inicio");
 
 
 
@@ -18,7 +18,7 @@ public class Tarefa
 
 
 
-        t = Thread.CurrentThread;
-        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | {taskId} - Terminou");
+        Log.Write(id, "Tarefa fim");
+
     }
 }

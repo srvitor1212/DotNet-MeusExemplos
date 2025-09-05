@@ -4,9 +4,10 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        var t = Thread.CurrentThread;
-        t.Name = "[Chamador_Na_Main]";
-        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | Main - Iniciou");
+        var id = Guid.NewGuid();
+        Log.Write(id, "Main inicio");
+
+
 
 
         /*Dessa forma todas as task rodam na mesma thread, sem existir paralelismo*/
@@ -26,6 +27,10 @@ class Program
 
         await Task.WhenAll(t1, t2, t3); // garante que a thread principal vai esperar as demais
 
-        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | Main - Terminou");
+
+
+
+
+        Log.Write(id, "Main fim");
     }
 }
