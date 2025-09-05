@@ -1,7 +1,6 @@
 ﻿
 
 using ConsoleApp3;
-using MultiThreadAndTasks;
 
 namespace MeuNameSpace;
 
@@ -9,8 +8,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        var id = Guid.NewGuid();
-        Log.Write(id, "Main - inicio");
+        var t = Thread.CurrentThread;
+        t.Name = "[Chamador_Na_Main]";
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | Main - Iniciou");
 
 
         var threadUm =
@@ -29,25 +29,25 @@ class Program
                 })
             { Name = "thread dois" };
 
-        var threadTres =
-            new Thread(() =>
-                {
-                    var tarefa = new Tarefa();
-                    tarefa.Executar().GetAwaiter().GetResult();
-                })
-            { Name = "thread tres" };
+        //var threadTres =
+        //    new Thread(() =>
+        //        {
+        //            var tarefa = new Tarefa();
+        //            tarefa.Executar().GetAwaiter().GetResult();
+        //        })
+        //    { Name = "thread tres" };
 
 
         threadUm.Start();
         threadDois.Start();
-        threadTres.Start();
+        //threadTres.Start();
 
         // Join para aguardar o término das threads
         threadUm.Join();
         threadDois.Join();
-        threadTres.Join();
+        //threadTres.Join();
 
 
-        Log.Write(id, "Main - fim");
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | Main - Terminou");
     }
 }

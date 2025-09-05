@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp3;
+﻿using MultiThreadAndTasks;
+
+namespace ConsoleApp3;
 
 public class Tarefa
 {
@@ -6,44 +8,52 @@ public class Tarefa
 
     public async Task<string> Executar()
     {
+        var idTarefa = Guid.NewGuid();
+        Log.Write(idTarefa, "Tarefa Inicio");
         var start = DateTime.Now;
-        Id = Guid.NewGuid();
-        var t = Thread.CurrentThread;
         var rand = new Random();
-
-        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Tarefa - Iniciou");
 
 
         var t1 = Task.Run(() =>
         {
-            Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Sub-Tarefa 1 - inicio");
-            for (long i = 0; i < 5_000_000_000; i++)
+            var id = Guid.NewGuid();
+            Log.Write(id, "SubTask t1 - inicio");
+
+            for (long i = 0; i < 1_600_000_000; i++)
                 rand.Next();
-            Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Sub-Tarefa 1 - Terminou");
+
+            Log.Write(id, "SubTask t1 - fim");
         });
 
         var t2 = Task.Run(() =>
         {
-            Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Sub-Tarefa 2 - inicio");
-            for (long i = 0; i < 2_000_000_000; i++)
+            var id = Guid.NewGuid();
+            Log.Write(id, "SubTask t2 - inicio");
+
+            for (long i = 0; i < 800_000_000; i++)
                 rand.Next();
-            Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Sub-Tarefa 2 - Terminou");
+
+            Log.Write(id, "SubTask t2 - fim");
         });
 
         var t3 = Task.Run(() =>
         {
-            Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Sub-Tarefa 3 - inicio");
-            for (long i = 0; i < 1_000_000_000; i++)
+            var id = Guid.NewGuid();
+            Log.Write(id, "SubTask t3 - inicio");
+
+            for (long i = 0; i < 100_000_000; i++)
                 rand.Next();
-            Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Sub-Tarefa 3 - Terminou");
+
+            Log.Write(id, "SubTask t3 - inicio");
         });
 
+
+        Log.Write(idTarefa, $"O await agora libera essa thread...");
         await Task.WhenAll(t1, t2, t3);
 
+
         var end = DateTime.Now;
-
-        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {Id} - Tarefa - Terminou {end - start}");
-
+        Log.Write(idTarefa, $"Tarefa Fim {end-start}");
         return "FIM DA TAREFA";
     }
 }
