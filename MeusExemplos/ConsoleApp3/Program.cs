@@ -44,9 +44,9 @@ class Program
         threadTres.Start();
 
         // Join faz a Thread que disparou aguardar as demais.
-        //threadUm.Join();
-        //threadDois.Join();
-        //threadTres.Join();
+        threadUm.Join();
+        threadDois.Join();
+        threadTres.Join();
 
         var end = DateTime.Now;
         Log.Write(id, $"Main - fim {end-start}");
