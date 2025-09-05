@@ -18,6 +18,7 @@ public class Tarefa
 
 
 
+        t = Thread.CurrentThread;
         Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | {taskId} - Terminou");
     }
 }

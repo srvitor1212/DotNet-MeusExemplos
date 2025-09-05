@@ -10,22 +10,32 @@ public class SimulaBancoDeDados
     public async Task<string> Consultar(int seconds, Guid taskId)
     {
         Seconds = seconds;
-
         var rand = new Random();
-
-        await Task.Delay(0);
-
-        /* Se usar task.delay não ocupa CPU nem cria thread nova.
-         Ele agenda um timer no sistema operacional, e quando o tempo expira, 
-        o runtime volta a executar a continuação (o resto do método async) usando o ThreadPool.*/
-        for (long i = 0; i < 2_000_000_000; i++)
-            rand.Next();
-
-
         var t = Thread.CurrentThread;
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | taskid={taskId} - SimulaBancoDeDados Inicio");
 
-        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | taskid={taskId} - Terminou");
 
+
+
+
+        /* Operações do tipo CPU-Bound libera a thread principal e geram novas threads
+         Operações do tipo I/O libera a thread principal e geram novas threads. Exemplo: consulta no banco, request http*/
+        for (long i = 0; i < 900_000_000; i++)
+            rand.Next();
+        t = Thread.CurrentThread;
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | taskid={taskId} - Terminou CPU-Bound");
+
+        await Task.Delay(1);
+        t = Thread.CurrentThread;
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | taskid={taskId} - Terminou I/O");
+
+
+
+
+
+
+        t = Thread.CurrentThread;
+        Console.WriteLine($"{DateTime.Now} | {t.ManagedThreadId} {t.Name} | {GetType()} | taskid={taskId} - SimulaBancoDeDados Terminou");
         return "RESULTADO DA CONSULTA";
     }
 }
