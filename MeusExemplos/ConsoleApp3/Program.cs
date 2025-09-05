@@ -10,6 +10,7 @@ class Program
     static void Main(string[] args)
     {
         var id = Guid.NewGuid();
+        var start = DateTime.Now;
         Log.Write(id, "Main - inicio");
 
 
@@ -42,12 +43,12 @@ class Program
         threadDois.Start();
         threadTres.Start();
 
-        // Join para aguardar o término das threads
-        threadUm.Join();
-        threadDois.Join();
-        threadTres.Join();
+        // Join faz a Thread que disparou aguardar as demais.
+        //threadUm.Join();
+        //threadDois.Join();
+        //threadTres.Join();
 
-
-        Log.Write(id, "Main - fim");
+        var end = DateTime.Now;
+        Log.Write(id, $"Main - fim {end-start}");
     }
 }
