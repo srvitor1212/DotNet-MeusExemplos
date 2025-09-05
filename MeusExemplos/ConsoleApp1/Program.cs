@@ -16,6 +16,7 @@ currThread.Name = "t - 1";
 Console.WriteLine($"{currThread.Name} | {Thread.CurrentThread.Name}");
 
 //-----------------------------------------------------------------------------------------------------
+Console.WriteLine($"\n\n\nTeste de thread!");
 
 var novaThread = new Thread(() =>
 {
