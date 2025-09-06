@@ -3,7 +3,7 @@
 namespace Tasks;
 
 
-public class SimulaBancoDeDados
+public class SimulaCPUeIO
 {
     public int Seconds { get; set; }
 
@@ -12,7 +12,7 @@ public class SimulaBancoDeDados
         Seconds = seconds;
         var rand = new Random();
         var id = Guid.NewGuid();
-        Log.Write(id, "SimulaBancoDeDados inicio");
+        Log.Write(id, "SimulaCPUeIO inicio");
 
 
 
@@ -27,12 +27,17 @@ public class SimulaBancoDeDados
         await Task.Delay(1);
         Log.Write(id, "Terminou o I/O!");
 
+        for (long i = 0; i < 900_000_000; i++)
+            rand.Next();
+        Log.Write(id, "Terminou o CPU-Bound na nova thread!");
 
 
 
 
 
-        Log.Write(id, "SimulaBancoDeDados fim");
+
+
+        Log.Write(id, "SimulaCPUeIO fim");
         return "RESULTADO DA CONSULTA";
     }
 }

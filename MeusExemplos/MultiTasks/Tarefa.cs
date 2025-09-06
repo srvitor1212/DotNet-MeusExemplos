@@ -13,8 +13,8 @@ public class Tarefa
 
 
 
-        var db = new SimulaBancoDeDados();
-        var result = await db.Consultar(Delay, taskId);
+        var process = new SimulaTarefaPesada();
+        var result = await process.Consultar(Delay, taskId);
 
 
 

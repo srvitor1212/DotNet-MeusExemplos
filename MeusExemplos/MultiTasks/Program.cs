@@ -17,9 +17,11 @@ class Program
             new Tarefa { }.Executar(Guid.NewGuid()),
             new Tarefa { }.Executar(Guid.NewGuid())
         };
-        await Task.WhenAll(tarefas);
+        Log.Write(id, "Main fim parcial");
 
-        /*Dessa forma cada task vai alocar sua própria thread, permitindo um processo paralelo*/
+
+
+        /*Dessa forma cada task vai ser alocada em uma nova thread, permitindo um processo paralelo*/
         Console.WriteLine($"\n\n\n --- Com paralelismo ---");
         var t1 = Task.Run(() => new Tarefa { }.Executar(Guid.NewGuid()));
         var t2 = Task.Run(() => new Tarefa { }.Executar(Guid.NewGuid()));
