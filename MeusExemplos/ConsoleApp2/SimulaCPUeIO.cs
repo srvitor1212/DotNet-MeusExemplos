@@ -1,6 +1,6 @@
 ﻿
 
-namespace Tasks;
+namespace LogApiTasks;
 
 
 public class SimulaCPUeIO

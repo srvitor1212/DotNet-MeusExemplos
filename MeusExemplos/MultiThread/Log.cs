@@ -1,4 +1,4 @@
-﻿namespace Tasks;
+﻿namespace LogApiTasks;
 
 public static class Log
 {

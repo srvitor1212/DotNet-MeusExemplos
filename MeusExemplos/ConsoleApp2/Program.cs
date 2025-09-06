@@ -1,6 +1,6 @@
 ﻿
 
-namespace Tasks;
+namespace LogApiTasks;
 
 
 class Program
