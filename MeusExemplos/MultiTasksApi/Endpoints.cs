@@ -42,14 +42,14 @@ public static class Endpoints
         .WithOpenApi();
 
 
-        app.MapGet("/AsyncRequestConsultaNoBanco",
+        app.MapGet("/FalsoAsyncRequestConsultaNoBanco",
         async (
             [FromServices] ClienteService service) =>
         {
             var id = Guid.NewGuid();
-            Log.Write(id, "AsyncRequestConsultaNoBanco inicio");
+            Log.Write(id, "FalsoAsyncRequestConsultaNoBanco inicio");
             var result = await service.GetAll();
-            Log.Write(id, "AsyncRequestConsultaNoBanco fim", end: false);
+            Log.Write(id, "FalsoAsyncRequestConsultaNoBanco fim", end: false);
             return result;
         })
         .WithOpenApi();
