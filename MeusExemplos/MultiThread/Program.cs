@@ -29,7 +29,7 @@ var cozinheiroJoao =
 
         for (int i = 0; i < 10; i++)
         {
-            Log.Write(idT2, "Fritou o bife {i}");
+            Log.Write(idT2, $"Fritou o bife {i}");
             Thread.Sleep(1 * 1000);
         }
 
