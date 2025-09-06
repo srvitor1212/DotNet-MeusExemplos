@@ -1,5 +1,6 @@
 using MultiTasksApi;
 using LogApiTasks;
+using MultiTasksApi.database;
 
 var id = Guid.NewGuid();
 Log.Write(id, "Program.cs inicio");
@@ -8,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AdicionarSqlite();
+builder.Services.AdicionarRepos();
 
 var app = builder.Build();
 
@@ -19,9 +22,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.AdicionarEndpoint();
-
 
 Log.Write(id, "Program.cs run app");
 await app.RunAsync();

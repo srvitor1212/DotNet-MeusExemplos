@@ -1,5 +1,7 @@
 ﻿
 using LogApiTasks;
+using Microsoft.AspNetCore.Mvc;
+using MultiTasksApi.database;
 
 namespace MultiTasksApi;
 
@@ -29,7 +31,6 @@ public static class Endpoints
         .WithOpenApi();
 
 
-
         app.MapGet("/FalsoAsyncRequest",
         async (long loops = 500_000_000) =>
         {
@@ -39,6 +40,20 @@ public static class Endpoints
             Log.Write(id, "CpuBoundFalsoAsync fim", end: true);
         })
         .WithOpenApi();
+
+
+        app.MapGet("/AsyncRequestConsultaNoBanco",
+        async (
+            [FromServices] ClienteService service) =>
+        {
+            var id = Guid.NewGuid();
+            Log.Write(id, "AsyncRequestConsultaNoBanco inicio");
+            var result = await service.GetAll();
+            Log.Write(id, "AsyncRequestConsultaNoBanco fim", end: false);
+            return result;
+        })
+        .WithOpenApi();
+
     }
 
     private static void CpuBound(long loops)
