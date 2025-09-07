@@ -9,24 +9,24 @@ public static class Endpoints
 {
     public static void AdicionarEndpoint(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/SyncRequest",
+        app.MapGet("/SyncRequest_CpuBound",
         (long loops = 500_000_000) =>
         {
             var id = Guid.NewGuid();
-            Log.Write(id, "SyncRequest inicio");
+            Log.Write(id, "SyncRequest_CpuBound inicio");
             CpuBound(loops);
-            Log.Write(id, "SyncRequest fim", end: true);
+            Log.Write(id, "SyncRequest_CpuBound fim", end: true);
         })
         .WithOpenApi();
 
 
-        app.MapGet("/AsyncRequest",
+        app.MapGet("/AsyncRequest_CpuBoundAsync",
         async (long loops = 500_000_000) =>
         {
             var id = Guid.NewGuid();
-            Log.Write(id, "AsyncRequest inicio");
+            Log.Write(id, "AsyncRequest_CpuBoundAsync inicio");
             await CpuBoundAsync(loops);
-            Log.Write(id, "AsyncRequest fim", end: true);
+            Log.Write(id, "AsyncRequest_CpuBoundAsync fim", end: true);
         })
         .WithOpenApi();
 

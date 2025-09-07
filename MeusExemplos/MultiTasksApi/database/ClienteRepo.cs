@@ -15,4 +15,10 @@ public class ClienteRepo : IClienteRepo
 
     public async Task<IEnumerable<Cliente>> GetAllAsync()
         => await _dbSet.ToListAsync();
+
+    public async Task InsertRange(IEnumerable<Cliente> clientes)
+    {
+        await _dbSet.AddRangeAsync(clientes);
+        await _appDbContext.SaveChangesAsync();
+    }
 }

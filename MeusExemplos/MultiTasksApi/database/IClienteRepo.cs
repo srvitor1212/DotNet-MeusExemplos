@@ -3,4 +3,6 @@
 public interface IClienteRepo
 {
     Task<IEnumerable<Cliente>> GetAllAsync();
+
+    Task InsertRange(IEnumerable<Cliente> clientes);
 }

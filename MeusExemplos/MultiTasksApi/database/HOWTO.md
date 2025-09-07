@@ -1,5 +1,5 @@
 ```
-cd .\MeusExemplos\MultiTasksApi
+cd .\MultiTasksApi\
 
 dotnet ef migrations add InitialCreate
 

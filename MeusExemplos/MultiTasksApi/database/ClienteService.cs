@@ -12,7 +12,6 @@ public class ClienteService
 
     public async Task<IEnumerable<Cliente>> GetAll()
     {
-        await Task.Delay(3 * 1000);
         return await _clienteRepo.GetAllAsync();
     }
         

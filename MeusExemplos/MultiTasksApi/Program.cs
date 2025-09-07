@@ -12,7 +12,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AdicionarSqlite();
 builder.Services.AdicionarRepos();
 
+// registra a classe de seed
+builder.Services.AddTransient<SeedDataBase>();
+
 var app = builder.Build();
+
+// roda o seed após o build, mas antes do Run
+using (var scope = app.Services.CreateScope())
+{
+    var seed = scope.ServiceProvider.GetRequiredService<SeedDataBase>();
+    await seed.SeedCliente();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
