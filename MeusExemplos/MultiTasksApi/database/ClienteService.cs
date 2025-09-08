@@ -1,4 +1,6 @@
-﻿namespace MultiTasksApi.database;
+﻿using LogApiTasks;
+
+namespace MultiTasksApi.database;
 
 public class ClienteService
 {
@@ -12,7 +14,12 @@ public class ClienteService
 
     public async Task<IEnumerable<Cliente>> GetAll()
     {
-        return await _clienteRepo.GetAllAsync();
+        var id = Guid.NewGuid();
+        Log.Write(id, "ClienteService inicio");
+        var result = await _clienteRepo.GetAllAsync();
+        Log.Write(id, "ClienteService fim");
+
+        return result;
     }
         
 }

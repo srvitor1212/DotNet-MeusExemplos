@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LogApiTasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MultiTasksApi.database;
 
@@ -14,7 +15,15 @@ public class ClienteRepo : IClienteRepo
     }
 
     public async Task<IEnumerable<Cliente>> GetAllAsync()
-        => await _dbSet.ToListAsync();
+    {
+        var id = Guid.NewGuid();
+        Log.Write(id, "ClienteRepo inicio");
+        var result = await _dbSet.ToListAsync();
+        Log.Write(id, "ClienteRepo fim");
+
+        return result;
+    }
+
 
     public async Task InsertRange(IEnumerable<Cliente> clientes)
     {
