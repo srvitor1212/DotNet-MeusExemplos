@@ -7,7 +7,7 @@ O uso de async/await não garante que o processo vai ser executado de forma para
 
 Quando a execução chega em um comando await(aguardar), e a carga a ser executada é do tipo I/O, então a thread atual se libera para atender outros processamentos.
 
-Porém é criado um agendamento para que essa thread retore quando esse await terminar.
+Porém é criado um agendamento para que essa thread retorne quando esse await terminar.
 
 Exemplo:
 ```
