@@ -6,6 +6,8 @@ public class SeedDataBase(IClienteRepo clienteRepo)
 {
     public IClienteRepo _repo = clienteRepo;
 
+    private const int total_registros = 300_000;
+
     public async Task SeedCliente()
     {
         var id = Guid.NewGuid();
@@ -19,7 +21,7 @@ public class SeedDataBase(IClienteRepo clienteRepo)
         {
             Log.Write(id, "SeedCliente inserts...");
 
-            for (long i = 1; i < 80_000; i++)
+            for (long i = 1; i <= total_registros; i++)
                 clientes.Add(new() { Nome = $"Cliente {i}" });
 
             await _repo.InsertRange(clientes);
