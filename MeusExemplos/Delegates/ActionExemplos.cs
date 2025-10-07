@@ -10,12 +10,12 @@ public class ActionExemplos
 
 
         
-        var contaVitor = new ContaCorrente("Vitor", 800m);
-        var contaMaria = new ContaCorrente("Maria", 300m);
+        var contaVitor = new ContaCorrente("Vitor", 1000);
+        var contaMaria = new ContaCorrente("Maria", 1200);
         Console.WriteLine($"{contaVitor}{contaMaria}");
 
-        DescontarValores(contaVitor.Debito, 20m);
-        DescontarValores(contaVitor.Debito, -2000m);
+        DescontarValores(contaVitor.Debito, 200m);
+        DescontarValores(contaVitor.DebitoBonus, 50m);
         DescontarValores(contaMaria.Debito, 120m);
         Console.WriteLine($"{contaVitor}{contaMaria}");
     }
@@ -46,19 +46,24 @@ internal class ContaCorrente
 {
     public string Nome { get; set; }
     public decimal Saldo { get; set; }
+    public decimal BonusNovoCliente { get; set; }
 
     public ContaCorrente(string nome, decimal saldo)
     {
         Nome = nome;
-        Saldo = saldo;
+        BonusNovoCliente = saldo * 0.30m;
+        Saldo = saldo + BonusNovoCliente;
     }
 
     public void Debito(decimal valor)
-        => Saldo = valor > Saldo ? 0 : Saldo - valor;
+        => Saldo -= valor;
+
+    public void DebitoBonus(decimal valor)
+        => BonusNovoCliente -= valor;
 
     public override string ToString()
     {
         return $"Conta do {Nome}\n" +
-            $"Saldo R$ {Saldo}\n\n";
+            $"Saldo R$ {Saldo} | Bonus R$ {BonusNovoCliente}\n\n";
     }
 }
