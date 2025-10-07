@@ -83,6 +83,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreadAndTasks", "Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTasksApi", "MultiTasksApi\MultiTasksApi.csproj", "{11F73992-E02B-4474-9A6B-A67DC098A6AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates", "Delegates\Delegates.csproj", "{24C0F0A9-C561-47E9-866C-F337649D146A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -217,6 +219,10 @@ Global
 		{11F73992-E02B-4474-9A6B-A67DC098A6AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11F73992-E02B-4474-9A6B-A67DC098A6AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11F73992-E02B-4474-9A6B-A67DC098A6AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24C0F0A9-C561-47E9-866C-F337649D146A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C0F0A9-C561-47E9-866C-F337649D146A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C0F0A9-C561-47E9-866C-F337649D146A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C0F0A9-C561-47E9-866C-F337649D146A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -256,6 +262,7 @@ Global
 		{AED5CAE1-AACE-432E-A0A9-684591A7DE36} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E985978F-7F02-459D-8A8E-6F80423E3859} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{11F73992-E02B-4474-9A6B-A67DC098A6AC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{24C0F0A9-C561-47E9-866C-F337649D146A} = {BBBDB469-2BA4-4020-ACBE-CEA254C07243}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2940B7B-53CF-4B90-B6F6-5696D223BF35}
