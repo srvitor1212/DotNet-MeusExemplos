@@ -63,7 +63,6 @@ internal class ContaCorrente
 
     public override string ToString()
     {
-        return $"Conta do {Nome}\n" +
-            $"Saldo R$ {Saldo} | Bonus R$ {BonusNovoCliente}\n\n";
+        return $"Conta do {Nome} | Saldo R$ {Saldo} | Bonus R$ {BonusNovoCliente}\n";
     }
 }
