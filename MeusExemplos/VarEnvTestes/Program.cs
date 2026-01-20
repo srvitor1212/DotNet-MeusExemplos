@@ -20,6 +20,7 @@ app.MapGet("/start-endpoint", () =>
 
     +++ appsettings.{Environment} +++
     Vai sobreescrever o appsettings de acordo com o ambiente.
+    Só sobreescreve as variáveis "repetidas".
     Se DEV, appsettings.Development sobreescreve appsettings
     Se PRD, appsettings.Production sobreescreve appsettings
      */
