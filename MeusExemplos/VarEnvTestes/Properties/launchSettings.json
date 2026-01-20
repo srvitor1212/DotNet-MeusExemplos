@@ -1,0 +1,22 @@
+﻿{
+
+
+  "profiles": {
+
+    "LaunchEnvDev": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "start-endpoint",
+      "VAR_TESTE_LAUNCH_FORA_environmentVariables": "Deu certo",
+      "applicationUrl": "https://localhost:7247;http://localhost:5064",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "VAR_TESTE_LAUNCH": "Sucesso ao recuperar variável"
+      }
+    }
+
+  }
+
+
+}
