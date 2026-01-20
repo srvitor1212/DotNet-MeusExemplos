@@ -33,7 +33,8 @@ public class Modificadores
             abstract 
                 Parecido com uma interface, mas pode conter métodos e propriedades não abstratos.
                 classe:     A classe não pode ser instânciada(tornar-se objeto). Precisa que outra classe herde ela para poder instânciar.
-                método:     Só pode ser usado em uma classe abstrada. Não precisa de corpo, o corpo pode ser feito na classe que herdou. Serve como um contrato a seguir.
+                método:     Só pode ser usado em uma classe abstrada. Não precisa de corpo, o corpo pode ser feito na classe que herdou. 
+                                Serve como um contrato a seguir.
 
             sealed
                 classe: Ao informar na classe ela não pode ser herdada.

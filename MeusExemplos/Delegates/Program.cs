@@ -13,7 +13,6 @@ Passar um delegate como parâmetro → você passa comportamento (um método que
 // Action<T> - Representa um método que não retorna valor (void)
 ActionExemplos.Exemplo();
 
-
 // Func - Representa um método que retorna um valor
 FuncExemplos.Exemplo();
 
