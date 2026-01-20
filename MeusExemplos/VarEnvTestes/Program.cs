@@ -17,6 +17,11 @@ app.MapGet("/start-endpoint", () =>
     Ele define como a aplicação se comporta, e não como ela é executada (diferente do launchSettings.json).
     Ele pode conter: Strings de conexão, Configurações de log, Feature flags, Chaves de APIs, Timeouts, Qualquer parâmetro configurável
     USADO ao PUBLICAR
+
+    +++ appsettings.{Environment} +++
+    Vai sobreescrever o appsettings de acordo com o ambiente.
+    Se DEV, appsettings.Development sobreescreve appsettings
+    Se PRD, appsettings.Production sobreescreve appsettings
      */
     var get = new Get();
 
